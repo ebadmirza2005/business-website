@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faaz Pro Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="page-loader" id="pageLoader" aria-live="polite" aria-label="Loading website">
+        <div class="loader-ring" aria-hidden="true"></div>
+        <p>Loading...</p>
+    </div>
+
+    <header data-aos="fade-down">
+        <a href="#home" class="brand" aria-label="Fast Pro Tech Home">
+            <img class="logo" src="assets/logo.png" alt="Faaz Pro Tech logo" width="350px" height="300px">
+            <!-- <video autoplay muted loop>
+                <source src="assets/logo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="primaryNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-menu" id="primaryNav" aria-label="Primary navigation">
+            <a href="#home">Home</a>
+            <a href="#service">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
+            <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
+            <div class="user-chip nav-user-chip" id="navUserChip" hidden>
+                <span class="avatar" id="navUserAvatar" aria-hidden="true">U</span>
+                <span class="user-name" id="navUserName">User</span>
+                <button class="logout-btn" id="navLogoutBtn" type="button">Logout</button>
+            </div>
+        </nav>
+
+        <div class="auth-controls">
+            <button class="btn btn-ghost auth-open" id="openAuth" type="button">Login / Signup</button>
+            <div class="user-chip" id="userChip" hidden>
+                <span class="avatar" id="userAvatar" aria-hidden="true">U</span>
+                <span class="user-name" id="userName">User</span>
+                <button class="logout-btn" id="logoutBtn" type="button">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-home" id="home">
+            <canvas id="web"></canvas>
+            <div class="profile">
+                <img src="assets/brain.png" alt="Profile image of Faaz Pro Tech founder" width="400px" height="400px">
+                <h2>
+                    <span>F</span>aaz
+                    <span>P</span>ro
+                    <span>T</span>ech
+                </h2>
+            </div>
+            <div class="detail-section" data-aos="fade-left">
+                <span>
+                    <p>
+                        At Fast Pro Tech, we provide fast, reliable, and accurate data processing solutions for
+                        businesses and individuals.
+                        Our goal is to simplify your data so you can focus on what matters most growing your business.
+                    </p>
+                </span>
+                <span>
+                    <p class="choose">Why Choose Us?</p>
+                </span>
+                <span>
+                    <ul>
+                        <li>Fast and accurate data processing</li>
+                        <li>100% data confidentiality</li>
+                        <li>Professional and trained team</li>
+                        <li>Consistent on-time delivery</li>
+                    </ul>
+                </span>
+                <span>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                        <a href="#service" class="btn btn-ghost">Explore Services</a>
+                    </div>
+                </span>
+            </div>
+        </section>
+
+        <section class="section-service-bpo">
+            <h2 data-aos="fade-down" id="service"><span>Our</span> <span>BPO</span> <span>Services</span></h2>
+            <div class="service-card" data-aos="fade-down">
+                <div class="card">
+                    <div class="lines"></div>
+                    <div class="imgBx">
+                        <img src="assets/data-collection.png" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="details">
+                            <h3>Data Collection</h3>
+                            <p>Gather accurate and reliable data from multiple sources for better decision-making.</p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/list-building.png" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Prospect List Building</h3>
+                                <p>Create targeted contact lists or datasets tailored to your business needs.</p>
+                            </div>
+                        </div>
+                
+                    </div>
+
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/data-research.png" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Data Research</h3>
+                        <p>Analyze trends, patterns, and insights to support strategic planning.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/lead-generation.png" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Cold Lead Generation</h3>
+                                <p>Identify and reach potential clients to grow your sales pipeline effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/data-entry.png" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Data Entry (Advanced)</h3>
+                                <p>Advanced data entry ensures accurate management of large datasets.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/pdf-to-excel.png" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>PDF to Excel</h3>
+                                <p>Convert PDF data into Excel sheets quickly and accurately for easy analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Cold Calling</h3>
+                                <p>Engage prospects directly to introduce your products and generate leads efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Data Scraping</h3>
+                                <p>Extract structured data from websites efficiently and ethically.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                 <h3>Data Visualization</h3>
+                        <p>Transform raw data into clear charts, graphs, and dashboards.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>CRM Tools</h3>
+                                <p>Manage customer relationships efficiently and streamline workflows.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Data Extraction Tools</h3>
+                                <p>Quickly gather and organize data from multiple sources for analysis and insights.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>High Volume Data Entry</h3>
+                                <p>Accurately input large amounts of data efficiently while maintaining quality and consistency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>MS Excel (Advanced)</h3>
+                                <p>Analyze, visualize, and manage data using advanced Excel functions and tools efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Google Workspace</h3>
+                                <p>Collaborate and manage work efficiently using Google's suite of productivity tools.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card hidden">
+                        <div class="lines"></div>
+                        <div class="imgBx"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Tools and Technologies</h3>
+                                <p>Utilize modern tools and technologies to streamline data processes.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <button id="seeMoreBtn" data-aos="fade-up">See More</button>
+        </section>
+
+        <section class="section-service-digital">
+                <h2 data-aos="fade-down"><span>Our</span> <span>Digital</span> <span>Services</span></h2>
+                <div class="service-card" data-aos="fade-down">
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <!-- <i class='bx bxs-collection'></i> -->
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Web Development</h3>
+                                <p>Building responsive and user-friendly 
+                                    websites using modern technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <!-- <i class='bx bxs-collection'></i> -->
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>App Development</h3>
+                                <p>Creating powerful mobile applications for Android and iOS platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <!-- <i class='bx bxs-collection'></i> -->
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Logo Design</h3>
+                                <p>Designing unique and memorable logos that represent a brand’s identity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <!-- <i class='bx bxs-collection'></i> -->
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Graphic Design</h3>
+                                <p>Crafting visually appealing designs for digital and print media.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <!-- <i class='bx bxs-collection'></i> -->
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Marketing</h3>
+                                <p>Promoting products and services to reach the right audience and grow business.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <!-- <i class='bx bxs-collection'></i> -->
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Ecommerce</h3>
+                                <p>Promoting products and services to reach the right audience and grow business.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section class="section-about" id="about">
+            <div class="about-card" data-aos="fade-right">
+                <h2>About Faaz Pro Tech</h2>
+                <p>
+                    We help startups, agencies, and growing businesses transform raw data into business-ready insights.
+                    Our workflow combines speed, quality control, and secure delivery.
+                </p>
+                <div class="stats-grid">
+                    <article>
+                        <h3>98%</h3>
+                        <p>Client Satisfaction</p>
+                    </article>
+                    <article>
+                        <h3>24/7</h3>
+                        <p>Support Availability</p>
+                    </article>
+                </div>
+                <button>Read More</button>
+            </div>
+            <div class="about-card about-checklist" data-aos="fade-left">
+                <h3>How We Work</h3>
+                <ul>
+                    <li>Requirement understanding and source planning</li>
+                    <li>Clean execution with quality checkpoints</li>
+                    <li>Transparent reports and export-ready delivery</li>
+                    <li>Continuous improvements based on feedback</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-contact" id="contact">
+            <div class="contact-box" data-aos="zoom-in">
+                <h2>Let's build your next data workflow</h2>
+                <p>Share your requirements and get a quick response from our team.</p>
+                <form class="contact-form" action="#" method="post">
+                    <label>
+                        Full Name
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </label>
+                    <label>
+                        Email Address
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        Project Details
+                        <textarea name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Send Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-details">
+            <div class="footer-top">
+                <h3><span>FAAZ PRO</span> TECH</h3>
+                <p>Turning data into powerful business insights.</p>
+            </div>
+            <div class="footer-links">
+              <div class="quick-links">
+                <h2>Quick Links</h2>
+                <a href="#home">Home</a>
+                <a href="#service">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
+              </div>
+              <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61573335866294" target="_blank"><i class='bx bxl-facebook-circle'></i>Facebook</a>
+                <a href="https://www.linkedin.com/company/faaz-pro-tech/?viewAsMember=true" target="_blank"><i class='bx bxl-linkedin-square'></i>LinkedIn</a>
+              </div>
+              
+            </div>
+            
+        </div>
+
+        <marquee behavior="scroll" direction="left">
+            <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
+        </marquee>
+    </footer>
+
+    <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-labelledby="authModalTitle">
+        <div class="auth-panel" role="document">
+            <button type="button" class="auth-close" id="closeAuth" aria-label="Close authentication">x</button>
+            <h2 id="authModalTitle">Welcome Back</h2>
+            <p>Join Fast Pro Tech and manage your service requests with ease.</p>
+
+            <div class="auth-tabs" role="tablist" aria-label="Auth tabs">
+                <button type="button" class="tab-btn is-active" id="loginTab" data-target="loginForm" role="tab"
+                    aria-selected="true">Login</button>
+                <button type="button" class="tab-btn" id="signupTab" data-target="signupForm" role="tab"
+                    aria-selected="false">Sign Up</button>
+            </div>
+
+            <form id="loginForm" class="auth-form is-active" method="POST" novalidate>
+                <label>
+                    Email Address
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    Password
+                </label>
+                <input type="password" id="loginPassword" placeholder="Enter password" minlength="6" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <form id="signupForm" class="auth-form" method="POST"  novalidate>
+                <label>
+                    Full Name
+                    <input type="text" id="signupName" placeholder="Your full name" required>
+                </label>
+                <label>
+                    Email Address
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                </label>
+                <label>
+                    Password
+                    <input type="password" id="signupPassword" placeholder="Create password" minlength="6" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+            <p class="auth-message" id="authMessage" aria-live="polite"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+</body>
+
+</html>
