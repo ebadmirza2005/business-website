@@ -552,7 +552,7 @@
         </div>
 
         <div class="footer-bottom">
-            <marquee>
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
                 <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
             </marquee>
         </div>
