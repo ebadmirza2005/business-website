@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Faaz Pro Tech</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="stylesheet" href="style.css?v=20260409-1">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
@@ -14,14 +19,9 @@
 </head>
 
 <body>
-    <div class="page-loader" id="pageLoader" aria-live="polite" aria-label="Loading website">
-        <div class="loader-ring" aria-hidden="true"></div>
-        <p>Loading...</p>
-    </div>
-
-    <header data-aos="fade-down">
+    <header data-aos="fade-down" data-aos-duration="650">
         <a href="#home" class="brand" aria-label="Fast Pro Tech Home">
-            <img class="logo" src="assets/logo.png" alt="Faaz Pro Tech logo" width="350px" height="300px">
+            <img class="logo" src="assets/logo.png" alt="Faaz Pro Tech logo" width="350" height="300" loading="eager" fetchpriority="high" decoding="async">
             <!-- <video autoplay muted loop>
                 <source src="assets/logo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -40,7 +40,6 @@
             <a href="#service">Services</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
             <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
             <div class="user-chip nav-user-chip" id="navUserChip" hidden>
                 <span class="avatar" id="navUserAvatar" aria-hidden="true">U</span>
@@ -63,19 +62,21 @@
         <section class="section-home" id="home">
             <canvas id="web"></canvas>
             <div class="profile">
-                <img src="assets/brain.png" alt="Profile image of Faaz Pro Tech founder" width="400px" height="400px">
+                <img src="assets/brain.png" alt="Profile image of Faaz Pro Tech founder" width="400" height="400" loading="eager"  fetchpriority="high" decoding="async">
                 <h2>
                     <span>F</span>aaz
                     <span>P</span>ro
                     <span>T</span>ech
                 </h2>
             </div>
-            <div class="detail-section" data-aos="fade-left">
+            <div class="detail-section" data-aos="fade-left" data-aos-duration="700">
                 <span>
                     <p>
-                        At Fast Pro Tech, we provide fast, reliable, and accurate data processing solutions for
-                        businesses and individuals.
-                        Our goal is to simplify your data so you can focus on what matters most growing your business.
+                        We provide expert web and app development, creative design, and result-driven
+                         digital marketing solutions. Alongside this, we offer reliable data 
+                         processing services including data entry, data management, 
+                         and analysis with high accuracy. Our goal is to deliver complete digital and
+                          data solutions that help businesses grow efficiently.
                     </p>
                 </span>
                 <span>
@@ -83,10 +84,10 @@
                 </span>
                 <span>
                     <ul>
-                        <li>Fast and accurate data processing</li>
-                        <li>100% data confidentiality</li>
-                        <li>Professional and trained team</li>
-                        <li>Consistent on-time delivery</li>
+                        <li>All-in-one services: development, design, marketing & data processing</li>
+                        <li>High accuracy and secure data handling</li>
+                        <li>Fast delivery with scalable and modern solutions</li>
+                        <li>Dedicated support focused on client success</li>
                     </ul>
                 </span>
                 <span>
@@ -99,12 +100,12 @@
         </section>
 
         <section class="section-service-bpo">
-            <h2 data-aos="fade-down" id="service"><span>Our</span> <span>BPO</span> <span>Services</span></h2>
-            <div class="service-card" data-aos="fade-down">
+            <h2 id="service" data-aos="fade-down" data-aos-duration="650"><span>Our</span> <span>BPO</span> <span>Services</span></h2>
+            <div class="service-card" data-aos="fade-up" data-aos-duration="700">
                 <div class="card">
                     <div class="lines"></div>
                     <div class="imgBx">
-                        <img src="assets/data-collection.png" alt="">
+                        <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async">
                     </div>
                     <div class="content">
                         <div class="details">
@@ -116,7 +117,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/list-building.png" alt="">
+                            <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -130,7 +131,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-research.png" alt="">
+                            <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -144,7 +145,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/lead-generation.png" alt="">
+                            <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -157,7 +158,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-entry.png" alt="">
+                            <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -170,7 +171,7 @@
                      <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/pdf-to-excel.png" alt="">
+                            <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -182,7 +183,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>Cold Calling</h3>
@@ -193,7 +196,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>Data Scraping</h3>
@@ -204,7 +209,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                  <h3>Data Visualization</h3>
@@ -215,7 +222,9 @@
 
                      <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>CRM Tools</h3>
@@ -227,7 +236,9 @@
                     
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>Data Extraction Tools</h3>
@@ -238,7 +249,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/high-volume-data-entry.png" alt="High volume data entry service" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>High Volume Data Entry</h3>
@@ -250,7 +263,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>MS Excel (Advanced)</h3>
@@ -261,7 +276,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>Google Workspace</h3>
@@ -272,7 +289,9 @@
 
                     <div class="card hidden">
                         <div class="lines"></div>
-                        <div class="imgBx"></div>
+                        <div class="imgBx">
+                            <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async">
+                        </div>
                         <div class="content">
                             <div class="details">
                                 <h3>Tools and Technologies</h3>
@@ -282,82 +301,154 @@
                     </div>
             </div>
 
-            <button id="seeMoreBtn" data-aos="fade-up">See More</button>
+            <button id="seeMoreBtn" data-aos="fade-up" data-aos-duration="650">See More</button>
         </section>
 
         <section class="section-service-digital">
-                <h2 data-aos="fade-down"><span>Our</span> <span>Digital</span> <span>Services</span></h2>
-                <div class="service-card" data-aos="fade-down">
+                <h2 data-aos="fade-down" data-aos-duration="650"><span>Our</span> <span>Digital</span> <span>Services</span></h2>
+                <div class="service-card" data-aos="fade-up" data-aos-duration="700">
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="imgBx">
-                            <!-- <i class='bx bxs-collection'></i> -->
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Web Development</h3>
-                                <p>Building responsive and user-friendly 
-                                    websites using modern technologies.</p>
+                        <div class="card-flip">
+                            <div class="card-face card-front">
+                                <div class="imgBx">
+                                    <label for="">🌐</label>
+                                </div>
+                                <div class="content">
+                                    <div class="details">
+                                        <h3>Web Development</h3>
+                                        <p>Building responsive and user-friendly websites using modern technologies.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-face card-back">
+                                <div class="package-panel" data-service="web">
+                                    <h4>Web Development Packages</h4>  
+                                    <div class="package-link">
+                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
+                                       <button type="button" data-tier="business">Business</button>
+                                       <button type="button" data-tier="pro">Pro</button>
+                                    </div>
+                                    
+                                    <ul class="package-list">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="imgBx">
-                            <!-- <i class='bx bxs-collection'></i> -->
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>App Development</h3>
-                                <p>Creating powerful mobile applications for Android and iOS platforms.</p>
+                        <div class="card-flip">
+                            <div class="card-face card-front">
+                                <div class="imgBx">
+                                    <label>📱</label>
+                                </div>
+                                <div class="content">
+                                    <div class="details">
+                                        <h3>App Development</h3>
+                                        <p>Creating powerful mobile applications for Android and iOS platforms.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-face card-back">
+                                <div class="package-panel" data-service="app">
+                                    <h4>App Development Packages</h4>
+                                    <div class="package-link">
+                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
+                                       <button type="button" data-tier="business">Business</button>
+                                       <button type="button" data-tier="pro">Pro</button>
+                                    </div>
+            
+                                    <ul class="package-list">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="imgBx">
-                            <!-- <i class='bx bxs-collection'></i> -->
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Logo Design</h3>
-                                <p>Designing unique and memorable logos that represent a brand’s identity.</p>
+                        <div class="card-flip">
+                            <div class="card-face card-front">
+                                <div class="imgBx">
+                                    <label>🎨</label>
+                                </div>
+                                <div class="content">
+                                    <div class="details">
+                                        <h3>Logo Design</h3>
+                                        <p>Designing unique and memorable logos that represent a brand's identity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-face card-back">
+                                <div class="package-panel" data-service="logo">
+                                    <h4>Logo Design Packages</h4>
+                                    <div class="package-link">
+                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
+                                       <button type="button" data-tier="business">Business</button>
+                                       <button type="button" data-tier="pro">Pro</button>
+                                    </div>
+                                    
+                                    <ul class="package-list">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="imgBx">
-                            <!-- <i class='bx bxs-collection'></i> -->
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Graphic Design</h3>
-                                <p>Crafting visually appealing designs for digital and print media.</p>
+                        <div class="card-flip">
+                            <div class="card-face card-front">
+                                <div class="imgBx">
+                                    <label>🖌️</label>
+                                </div>
+                                <div class="content">
+                                    <div class="details">
+                                        <h3>Graphic Design</h3>
+                                        <p>Crafting visually appealing designs for digital and print media.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-face card-back">
+                                <div class="package-panel" data-service="graphic">
+                                    <h4>Graphic Design Packages</h4>
+                                    <div class="package-link">
+                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
+                                       <button type="button" data-tier="business">Business</button>
+                                       <button type="button" data-tier="pro">Pro</button>
+                                    </div>
+                                    
+                                    <ul class="package-list">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="imgBx">
-                            <!-- <i class='bx bxs-collection'></i> -->
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Marketing</h3>
-                                <p>Promoting products and services to reach the right audience and grow business.</p>
+                        <div class="card-flip">
+                            <div class="card-face card-front">
+                                <div class="imgBx">
+                                    <label>📈</label>
+                                </div>
+                                <div class="content">
+                                    <div class="details">
+                                        <h3>Marketing</h3>
+                                        <p>Promoting products and services to reach the right audience and grow business.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <!-- <i class='bx bxs-collection'></i> -->
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Ecommerce</h3>
-                                <p>Promoting products and services to reach the right audience and grow business.</p>
+                            <div class="card-face card-back">
+                                <div class="package-panel" data-service="marketing">
+                                    <h4>Marketing Packages</h4>
+                                    <div class="package-link">
+                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
+                                       <button type="button" data-tier="business">Business</button>
+                                       <button type="button" data-tier="pro">Pro</button>
+                                    </div>
+                                    
+                                    <ul class="package-list">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -365,12 +456,18 @@
         </section>
 
         <section class="section-about" id="about">
-            <div class="about-card" data-aos="fade-right">
+            <div class="about-card" data-aos="fade-right" data-aos-duration="700">
+                <p class="about-eyebrow">About Us</p>
                 <h2>About Faaz Pro Tech</h2>
-                <p>
-                    We help startups, agencies, and growing businesses transform raw data into business-ready insights.
-                    Our workflow combines speed, quality control, and secure delivery.
+                <p class="about-lead">
+                    We help startups, agencies, and growing businesses with end-to-end development and high-accuracy data processing,
+                    turning ideas and raw data into business-ready digital solutions.
                 </p>
+                <div class="about-pill-row">
+                    <span class="about-pill">Data Precision</span>
+                    <span class="about-pill">Fast Turnaround</span>
+                    <span class="about-pill">Secure Handling</span>
+                </div>
                 <div class="stats-grid">
                     <article>
                         <h3>98%</h3>
@@ -381,10 +478,11 @@
                         <p>Support Availability</p>
                     </article>
                 </div>
-                <button>Read More</button>
+                <a href="#contact" class="btn btn-primary about-cta" style="margin-top: 20px;">Start Your Project</a>
             </div>
-            <div class="about-card about-checklist" data-aos="fade-left">
+            <div class="about-card about-checklist" data-aos="fade-left" data-aos-duration="700">
                 <h3>How We Work</h3>
+                <p>From kickoff to delivery, every project follows a clear and transparent process.</p>
                 <ul>
                     <li>Requirement understanding and source planning</li>
                     <li>Clean execution with quality checkpoints</li>
@@ -395,10 +493,10 @@
         </section>
 
         <section class="section-contact" id="contact">
-            <div class="contact-box" data-aos="zoom-in">
+            <div class="contact-box" data-aos="zoom-in" data-aos-duration="700">
                 <h2>Let's build your next data workflow</h2>
                 <p>Share your requirements and get a quick response from our team.</p>
-                <form class="contact-form" action="#" method="post">
+                <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
                     <label>
                         Full Name
                         <input type="text" name="name" placeholder="Your name" required>
@@ -413,6 +511,7 @@
                     </label>
                     <button type="submit" class="btn btn-primary">Send Request</button>
                 </form>
+                <p class="auth-message" id="contactMessage" aria-live="polite"></p>
             </div>
         </section>
     </main>
@@ -424,26 +523,37 @@
                 <p>Turning data into powerful business insights.</p>
             </div>
             <div class="footer-links">
-              <div class="quick-links">
-                <h2>Quick Links</h2>
-                <a href="#home">Home</a>
-                <a href="#service">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
-              </div>
-              <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61573335866294" target="_blank"><i class='bx bxl-facebook-circle'></i>Facebook</a>
-                <a href="https://www.linkedin.com/company/faaz-pro-tech/?viewAsMember=true" target="_blank"><i class='bx bxl-linkedin-square'></i>LinkedIn</a>
-              </div>
-              
+                <div class="quick-links">
+                    <h2>Quick Links</h2>
+                    <a href="#home">Home</a>
+                    <a href="#service">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
+                </div>
+                <div class="contact-links">
+                    <h2>Contact</h2>
+                    <a href="mailto:ebadmirza.2005@gmail.com">ebadmirza.2005@gmail.com</a>
+                    <a href="#contact">Request a Quote</a>
+                    <p>Fast response for BPO Services and Digital Services projects.</p>
+                </div>
+                <div class="social-links">
+                    <h2>Social Links</h2>
+                    <a href="https://www.facebook.com/profile.php?id=61573335866294" target="_blank" rel="noopener">
+                        <i class='bx bxl-facebook-circle' aria-hidden="true"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/faaz-pro-tech/?viewAsMember=true" target="_blank" rel="noopener">
+                        <i class='bx bxl-linkedin-square' aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
             </div>
-            
         </div>
 
-        <marquee behavior="scroll" direction="left">
+        <div class="footer-bottom">
             <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
-        </marquee>
+        </div>
     </footer>
 
     <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-labelledby="authModalTitle">
@@ -491,8 +601,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="script.js?v=20260409-4" defer></script>
 </body>
 
 </html>

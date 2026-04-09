@@ -1,5 +1,6 @@
 const loader = document.getElementById("pageLoader");
 let aosInitialized = false;
+const pageHeader = document.querySelector("header");
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("primaryNav");
 const navLinks = document.querySelectorAll(".nav-menu a");
@@ -21,8 +22,26 @@ const userAvatar = document.getElementById("userAvatar");
 const navUserAvatar = document.getElementById("navUserAvatar");
 const logoutBtn = document.getElementById("logoutBtn");
 const navLogoutBtn = document.getElementById("navLogoutBtn");
+const contactForm = document.getElementById("contactForm");
+const contactMessage = document.getElementById("contactMessage");
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const SESSION_KEY = "fastprotech_current_user";
+
+const getScrollTop = () =>
+  window.scrollY ||
+  window.pageYOffset ||
+  document.documentElement.scrollTop ||
+  document.body.scrollTop ||
+  0;
+
+const syncHeaderOnScroll = () => {
+  if (!pageHeader) {
+    return;
+  }
+
+  pageHeader.classList.toggle("is-scrolled", getScrollTop() > 2);
+};
 
 const initAos = () => {
   if (aosInitialized || !window.AOS) {
@@ -30,16 +49,23 @@ const initAos = () => {
   }
 
   window.AOS.init({
-    duration: 1000,
+    duration: 700,
+    easing: "ease-out-cubic",
     once: true,
+    offset: 84,
   });
   aosInitialized = true;
 };
 
 if (loader) {
   document.body.classList.add("is-loading");
+  let loaderHidden = false;
 
   const hideLoader = () => {
+    if (loaderHidden) {
+      return;
+    }
+    loaderHidden = true;
     loader.classList.add("is-hidden");
     document.body.classList.remove("is-loading");
     initAos();
@@ -50,7 +76,6 @@ if (loader) {
     window.setTimeout(hideLoader, 1000);
   });
 
-  // Fallback in case load event is delayed by network.
   window.setTimeout(hideLoader, 5000);
 } else {
   initAos();
@@ -59,6 +84,11 @@ if (loader) {
 if (year) {
   year.textContent = new Date().getFullYear();
 }
+
+syncHeaderOnScroll();
+window.addEventListener("scroll", syncHeaderOnScroll, { passive: true });
+window.addEventListener("load", syncHeaderOnScroll);
+window.addEventListener("resize", syncHeaderOnScroll);
 
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
@@ -75,6 +105,28 @@ if (menuToggle && nav) {
     });
   });
 }
+
+document.addEventListener("click", (event) => {
+  const anchor = event.target instanceof Element ? event.target.closest('a[href^="#"]') : null;
+
+  if (!anchor) {
+    return;
+  }
+
+  const targetId = anchor.getAttribute("href")?.slice(1);
+  if (!targetId) {
+    return;
+  }
+
+  const targetElement = document.getElementById(targetId);
+  if (!targetElement) {
+    return;
+  }
+
+  event.preventDefault();
+  targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.replaceState(null, "", `#${targetId}`);
+});
 
 const setSessionUser = (name) => {
   localStorage.setItem(SESSION_KEY, name);
@@ -113,7 +165,17 @@ const postForm = async (url, payload) => {
     body,
   });
 
-  const data = await response.json();
+  const raw = await response.text();
+  let data = null;
+
+  try {
+    data = JSON.parse(raw);
+  } catch {
+    const cleanMessage = raw.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    throw new Error(
+      cleanMessage || "Server returned an invalid response. Please try again.",
+    );
+  }
 
   if (!response.ok || !data.success) {
     throw new Error(data.message || "Request failed");
@@ -280,10 +342,13 @@ if (signupForm) {
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Signup failed. Please try again.";
-      setMessage(message, true);
       if (message.toLowerCase().includes("already")) {
-        switchTab("login");
+        switchTab("signup");
+        setMessage("This email is already registered. Please log in.", true);
+        return;
       }
+
+      setMessage(message, true);
     }
   });
 }
@@ -312,6 +377,56 @@ if (loginForm) {
   });
 }
 
+const setContactMessage = (message, isError = false) => {
+  if (!contactMessage) {
+    return;
+  }
+
+  contactMessage.textContent = message;
+  contactMessage.style.color = isError ? "#ffc7c7" : "#d7ffdf";
+};
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    const name = (contactForm.elements.namedItem("name")?.value || "").trim();
+    const email = (contactForm.elements.namedItem("email")?.value || "").trim().toLowerCase();
+    const message = (contactForm.elements.namedItem("message")?.value || "").trim();
+
+    if (!name || !email || !message) {
+      setContactMessage("Please fill in all fields before sending.", true);
+      return;
+    }
+
+    try {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+
+      const result = await postForm("send_request.php", {
+        name,
+        email,
+        message,
+      });
+
+      setContactMessage(result.message || "Your request has been sent successfully.");
+      contactForm.reset();
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Could not send your request. Please try again.";
+      setContactMessage(errorMessage, true);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Request";
+      }
+    }
+  });
+}
+
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     clearSessionUser();
@@ -333,16 +448,19 @@ if (navLogoutBtn) {
 
 updateAuthUI();
 
-// Spider web animation for side panel canvas
 const canvas = document.getElementById("web");
 
-if (canvas) {
+if (canvas && !reducedMotionQuery.matches) {
   const ctx = canvas.getContext("2d");
   const particles = [];
-  const particleCount = 70;
+  const viewportArea = window.innerWidth * window.innerHeight;
+  const particleCount = Math.min(44, Math.max(24, Math.floor(viewportArea / 36000)));
   const linkDistance = 110;
 
   if (ctx) {
+    let rafId = 0;
+    let canvasVisible = true;
+
     const clampToCanvas = (value, max) => Math.min(Math.max(value, 0), max);
 
     const setCanvasSize = () => {
@@ -432,14 +550,68 @@ if (canvas) {
       });
 
       drawConnections();
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
+    };
+
+    const startAnimation = () => {
+      if (!rafId && canvasVisible) {
+        animate();
+      }
+    };
+
+    const stopAnimation = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
     };
 
     setCanvasSize();
-    animate();
+    startAnimation();
 
-    const resizeHandler = () => setCanvasSize();
+    if (window.IntersectionObserver) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          canvasVisible = Boolean(entry?.isIntersecting);
+
+          if (canvasVisible) {
+            startAnimation();
+          } else {
+            stopAnimation();
+          }
+        },
+        {
+          threshold: 0.08,
+        },
+      );
+
+      const heroSection = document.getElementById("home");
+      if (heroSection) {
+        heroObserver.observe(heroSection);
+      }
+    }
+
+    let resizeFrame = 0;
+    const resizeHandler = () => {
+      if (resizeFrame) {
+        return;
+      }
+
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = 0;
+        setCanvasSize();
+      });
+    };
     window.addEventListener("resize", resizeHandler);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else {
+        startAnimation();
+      }
+    });
 
     if (window.ResizeObserver) {
       const observer = new ResizeObserver(() => setCanvasSize());
@@ -448,16 +620,14 @@ if (canvas) {
   }
 }
 
-// Show More Cards
 const btn = document.getElementById("seeMoreBtn");
 let expanded = false;
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const cards = document.querySelectorAll(".card");
+    const cards = document.querySelectorAll(".section-service-bpo .service-card > .card");
 
     if (!expanded) {
-      // Show all hidden cards instantly.
       cards.forEach((card) => {
         if (card.classList.contains("hidden")) {
           card.classList.remove("hidden");
@@ -468,7 +638,6 @@ if (btn) {
       btn.innerText = "See Less";
       expanded = true;
     } else {
-      // Collapse extra cards, then return viewport near the section top.
       cards.forEach((card, index) => {
         if (index >= 6) {
           card.classList.remove("show");
@@ -485,5 +654,166 @@ if (btn) {
       );
       window.scrollTo({ top: targetY, behavior: "smooth" });
     }
+  });
+}
+
+const digitalCards = document.querySelectorAll(".section-service-digital .card");
+
+if (digitalCards.length) {
+  digitalCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const shouldFlip = !card.classList.contains("is-flipped");
+
+      digitalCards.forEach((item) => item.classList.remove("is-flipped"));
+
+      if (shouldFlip) {
+        card.classList.add("is-flipped");
+      }
+    });
+  });
+}
+
+const packageMatrix = {
+  web: {
+    starter: [
+      "Starter - $299: 5-page responsive website",
+      "Mobile-friendly layout with contact form",
+      "Basic on-page SEO setup",
+    ],
+    business: [
+      "Business - $599: 10-page site + booking form",
+      "Speed optimization and lead capture sections",
+      "Google indexing plus analytics setup",
+    ],
+    pro: [
+      "Pro - $999: Custom CMS + complete SEO setup",
+      "Advanced animations and conversion-focused pages",
+      "Priority support and monthly performance report",
+    ],
+  },
+  app: {
+    starter: [
+      "Starter - $699: Single-platform app (Android or iOS)",
+      "Clean UI with 4 to 6 screens",
+      "Play Store/App Store basic guidance",
+    ],
+    business: [
+      "Business - $1,199: Cross-platform app + API integration",
+      "Auth, dashboard and push notification setup",
+      "Performance tuning and QA testing",
+    ],
+    pro: [
+      "Pro - $1,999: Full app + admin panel + deployment",
+      "Scalable architecture with advanced analytics",
+      "3 months priority maintenance support",
+    ],
+  },
+  logo: {
+    starter: [
+      "Starter - $79: 2 logo concepts + PNG/JPG files",
+      "Brand color suggestions and typography pair",
+      "2 revision rounds included",
+    ],
+    business: [
+      "Business - $149: 4 concepts + 3 revisions",
+      "Social profile kit and transparent assets",
+      "Source file in AI/EPS formats",
+    ],
+    pro: [
+      "Pro - $249: Complete logo kit + brand guide",
+      "Mockups for web, print and packaging",
+      "Priority delivery and strategy call",
+    ],
+  },
+  graphic: {
+    starter: [
+      "Starter - $129: 10 social media posts",
+      "Branded layouts for FB and Instagram",
+      "Delivery in editable and export formats",
+    ],
+    business: [
+      "Business - $249: Brochure + banner + post set",
+      "Campaign-focused creative direction",
+      "3 revision rounds for final polish",
+    ],
+    pro: [
+      "Pro - $399: Monthly creative design support",
+      "Ad creatives, carousel kits and promo visuals",
+      "Dedicated designer with quick turnaround",
+    ],
+  },
+  marketing: {
+    starter: [
+      "Starter - $199: Social media setup + weekly posts",
+      "Profile optimization and content calendar",
+      "Basic growth tracking report",
+    ],
+    business: [
+      "Business - $399: Ads management + lead tracking",
+      "Audience targeting and conversion creatives",
+      "Weekly optimization with KPI reports",
+    ],
+    pro: [
+      "Pro - $799: Full funnel marketing + monthly reports",
+      "Performance campaigns across multiple channels",
+      "Strategy, automation and remarketing setup",
+    ],
+  },
+};
+
+const highlightPriceInItem = (item) => {
+  const priceMatch = item.match(/\$[\d,]+/);
+  if (!priceMatch) {
+    return item;
+  }
+
+  const [price] = priceMatch;
+  return item.replace(
+    price,
+    `<span class="package-price" aria-label="Price ${price}">${price}</span>`,
+  );
+};
+
+const renderPackageForPanel = (panel, tier) => {
+  if (!panel) {
+    return;
+  }
+
+  const service = panel.dataset.service;
+  const list = panel.querySelector(".package-list");
+  const packageItems = packageMatrix[service]?.[tier];
+
+  if (!list || !packageItems) {
+    return;
+  }
+
+  list.innerHTML = packageItems
+    .map((item) => `<li>${highlightPriceInItem(item)}</li>`)
+    .join("");
+};
+
+const packagePanels = document.querySelectorAll(".section-service-digital .package-panel[data-service]");
+
+if (packagePanels.length) {
+  packagePanels.forEach((panel) => {
+    const buttons = panel.querySelectorAll("[data-tier]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const tier = button.dataset.tier;
+        if (!tier) {
+          return;
+        }
+
+        buttons.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        renderPackageForPanel(panel, tier);
+      });
+    });
+
+    renderPackageForPanel(panel, "starter");
   });
 }

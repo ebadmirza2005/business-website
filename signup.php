@@ -24,12 +24,19 @@ if ($username === "" || $email === "" || strlen($password) < 6) {
     exit;
 }
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Please provide a valid email address"
+    ]);
+    exit;
+}
+
 try {
     $checkStmt = $conn->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
     $checkStmt->bind_param("s", $email);
     $checkStmt->execute();
     $checkResult = $checkStmt->get_result();
-
     if ($checkResult->num_rows > 0) {
         echo json_encode([
             "success" => false,
