@@ -552,7 +552,9 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
+            <marquee behavior="scroll" direction="left">
+                <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
+            </marquee>
         </div>
     </footer>
 
