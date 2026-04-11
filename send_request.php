@@ -67,8 +67,11 @@ $smtpPort = (int) ($smtpConfig["port"] ?? getenv("SMTP_PORT") ?: 587);
 $smtpUser = (string) ($smtpConfig["username"] ?? getenv("SMTP_USER") ?: "");
 $smtpPass = (string) ($smtpConfig["password"] ?? getenv("SMTP_PASS") ?: "");
 $smtpFrom = (string) ($smtpConfig["from_email"] ?? getenv("SMTP_FROM") ?: $smtpUser);
+$smtpTo = (string) ($smtpConfig["recipient_email"] ?? getenv("SMTP_TO") ?: $smtpFrom);
 $smtpFromName = (string) ($smtpConfig["from_name"] ?? getenv("SMTP_FROM_NAME") ?: "Faaz Pro Tech");
 $smtpEncryption = strtolower((string) ($smtpConfig["encryption"] ?? "tls"));
+$smtpDebug = filter_var($smtpConfig["debug"] ?? getenv("SMTP_DEBUG") ?? false, FILTER_VALIDATE_BOOL);
+$smtpDebugLog = [];
 
 // Gmail App Password is commonly copied with spaces; normalize it safely.
 $smtpPass = trim(str_replace(" ", "", $smtpPass));
@@ -80,7 +83,7 @@ if ($smtpUser === "" || $smtpPass === "") {
     ]);
 }
 
-$to = "ebadmirza.2005@gmail.com";
+$to = $smtpTo;
 $subject = "New Contact Request - Faaz Pro Tech";
 
 $body = "You have received a new contact request from your website.\n\n"
@@ -95,18 +98,35 @@ try {
     $mailer->SMTPAuth = true;
     $mailer->Username = $smtpUser;
     $mailer->Password = $smtpPass;
+    $mailer->Hostname = parse_url('https://' . preg_replace('/^mailto:/', '', $smtpFrom), PHP_URL_HOST) ?: 'faazprotech.com';
     $mailer->SMTPSecure = $smtpEncryption === "ssl"
         ? PHPMailer::ENCRYPTION_SMTPS
         : PHPMailer::ENCRYPTION_STARTTLS;
     $mailer->Port = $smtpPort;
     $mailer->CharSet = "UTF-8";
+    if ($smtpDebug) {
+        $mailer->SMTPDebug = 2;
+        $mailer->Debugoutput = static function ($str, $level) use (&$smtpDebugLog): void {
+            $smtpDebugLog[] = trim("[{$level}] {$str}");
+        };
+    }
+    $mailer->SMTPOptions = [
+        "ssl" => [
+            "verify_peer" => false,
+            "verify_peer_name" => false,
+            "allow_self_signed" => true,
+        ],
+    ];
 
+    $mailer->Sender = $smtpFrom;
     $mailer->setFrom($smtpFrom, $smtpFromName);
     $mailer->addAddress($to);
     $mailer->addReplyTo($email, $name);
 
     $mailer->Subject = $subject;
     $mailer->Body = $body;
+    $mailer->AltBody = $body;
+    $mailer->isHTML(false);
 
     $mailer->send();
 } catch (Exception $e) {
@@ -114,12 +134,13 @@ try {
     $hint = "";
 
     if (stripos($errorText, "authenticate") !== false) {
-        $hint = " Use Gmail App Password (16 chars), not your normal Gmail password.";
+        $hint = " Use your Hostinger mailbox password, and make sure SMTP host, port, and encryption match Hostinger settings.";
     }
 
     sendJson([
         "success" => false,
         "message" => "Message could not be sent. SMTP error: " . $errorText . $hint
+            . ($smtpDebug && !empty($smtpDebugLog) ? " | Debug: " . implode(" || ", $smtpDebugLog) : "")
     ]);
 }
 

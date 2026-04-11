@@ -429,7 +429,7 @@
                 </div>
                 <div class="contact-links">
                     <h2>Contact</h2>
-                    <a href="mailto:ebadmirza.2005@gmail.com">ebadmirza.2005@gmail.com</a>
+                    <a href="mailto:admin@faazprotech.com">admin@faazprotech.com</a>
                     <a href="#contact">Request a Quote</a>
                     <p>Fast response for BPO Services and Digital Services projects.</p>
                 </div>
