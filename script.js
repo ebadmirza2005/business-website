@@ -12,6 +12,11 @@ const signupTab = document.getElementById("signupTab");
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
 const authMessage = document.getElementById("authMessage");
+const navUserChip = document.getElementById("navUserChip");
+const navUserName = document.getElementById("navUserName");
+const navUserAvatar = document.getElementById("navUserAvatar");
+const navLogoutBtn = document.getElementById("navLogoutBtn");
+const modalLogoutBtn = document.getElementById("modalLogoutBtn");
 const contactForm = document.getElementById("contactForm");
 const contactMessage = document.getElementById("contactMessage");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -98,6 +103,19 @@ const clearSessionUser = () => {
   localStorage.removeItem(SESSION_KEY);
 };
 
+const setUserPresentation = (name) => {
+  const safeName = (name || "User").trim();
+  const firstLetter = safeName.charAt(0).toUpperCase() || "U";
+
+  if (navUserName) {
+    navUserName.textContent = safeName;
+  }
+
+  if (navUserAvatar) {
+    navUserAvatar.textContent = firstLetter;
+  }
+};
+
 const postForm = async (url, payload) => {
   const body = new URLSearchParams(payload).toString();
   const response = await fetch(url, {
@@ -137,10 +155,11 @@ const setMessage = (message, isError = false) => {
 };
 
 const updateAuthUI = () => {
-  const currentUser = localStorage.getItem(SESSION_KEY);
-  const hasValidUser = Boolean(currentUser && currentUser !== "Guest");
+  const currentUser = localStorage.getItem(SESSION_KEY) || "";
+  const normalizedUser = currentUser.trim();
+  const hasValidUser = Boolean(normalizedUser && normalizedUser !== "Guest");
 
-  if (currentUser === "Guest") {
+  if (normalizedUser === "Guest") {
     clearSessionUser();
   }
 
@@ -150,6 +169,18 @@ const updateAuthUI = () => {
 
   if (openAuthMenu) {
     openAuthMenu.hidden = hasValidUser;
+  }
+
+  if (navUserChip) {
+    navUserChip.hidden = !hasValidUser;
+  }
+
+  if (modalLogoutBtn) {
+    modalLogoutBtn.hidden = !hasValidUser;
+  }
+
+  if (hasValidUser) {
+    setUserPresentation(normalizedUser);
   }
 
   document.body.classList.toggle("is-authenticated", hasValidUser);
@@ -356,6 +387,35 @@ if (contactForm) {
         submitBtn.textContent = "Send Request";
       }
     }
+  });
+}
+
+const performLogout = () => {
+  clearSessionUser();
+  if (navUserChip) {
+    navUserChip.hidden = true;
+  }
+  if (modalLogoutBtn) {
+    modalLogoutBtn.hidden = true;
+  }
+  if (openAuthMenu) {
+    openAuthMenu.hidden = false;
+  }
+  updateAuthUI();
+  nav?.classList.remove("is-open");
+  menuToggle?.classList.remove("is-active");
+  menuToggle?.setAttribute("aria-expanded", "false");
+  setMessage("You have been logged out.");
+};
+
+if (navLogoutBtn) {
+  navLogoutBtn.addEventListener("click", performLogout);
+}
+
+if (modalLogoutBtn) {
+  modalLogoutBtn.addEventListener("click", () => {
+    performLogout();
+    closeModal();
   });
 }
 

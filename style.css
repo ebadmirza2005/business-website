@@ -26,6 +26,10 @@
     box-sizing: border-box;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -235,15 +239,15 @@ main section {
     position: absolute;
     inset: auto 8% 24% 8%;
     height: 68%;
-    background: radial-gradient(circle, rgba(29, 233, 182, 0.3) 0%, transparent 70%);
+    /* background: radial-gradient(circle, rgba(29, 233, 182, 0.3) 0%, transparent 70%); */
     filter: blur(8px);
     z-index: -1;
 }
 
 .profile img {
     width: min(390px, 88%);
-    height: 400px;
-    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.45));
+    height: 510px;
+    /* filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.45)); */
     animation: floatUpDown 4.6s ease-in-out infinite;
 }
 
@@ -259,6 +263,14 @@ main section {
 
 .profile h2 span {
     color: var(--brand);
+}
+
+.profile p {
+    position: relative;
+    bottom: 120px;
+    /* right: 40px; */
+    font-weight: bold;
+    color: var(--text-soft);
 }
 
 .detail-section {
@@ -370,18 +382,21 @@ main section {
 .section-service-digital h2,
 .section-about h2,
 .section-contact h2 {
+    text-align: center;
+    margin: auto;
     font-family: "Urbanist", sans-serif;
     font-size: clamp(1.52rem, 3.1vw, 2.35rem);
     letter-spacing: 0.03em;
+    color: var(--brand);
+    padding-bottom: 10px;
+    width: fit-content;
+    border-bottom: 4px solid var(--brand);
     margin-bottom: 1.5rem;
 }
 
 .section-service-bpo h2 span,
 .section-service-digital h2 span {
-    background: linear-gradient(90deg, #fff, #b0f0ff 60%, #9bf3cf);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: inherit;
 }
 
 .service-card {
@@ -777,6 +792,11 @@ button[disabled] {
 
 .auth-form.is-active {
     display: grid;
+}
+
+.auth-logout-btn {
+    width: 100%;
+    margin-bottom: 0.72rem;
 }
 
 .auth-message {

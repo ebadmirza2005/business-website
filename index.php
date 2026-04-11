@@ -30,6 +30,11 @@
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
+            <div class="user-chip nav-user-chip" id="navUserChip" hidden>
+                <span class="avatar" id="navUserAvatar" aria-hidden="true">U</span>
+                <span class="user-name" id="navUserName">User</span>
+                <button class="logout-btn" id="navLogoutBtn" type="button">Logout</button>
+            </div>
         </nav>
     </header>
 
@@ -43,6 +48,7 @@
                     <span>P</span>ro
                     <span>T</span>ech
                 </h2>
+                <p>Turning data into powerful business insights.</p>
             </div>
             <div class="detail-section">
                 <span>
@@ -458,6 +464,8 @@
                 <button type="button" class="tab-btn" id="signupTab" data-target="signupForm" role="tab"
                     aria-selected="false">Sign Up</button>
             </div>
+
+            <button type="button" class="btn btn-ghost auth-logout-btn" id="modalLogoutBtn" hidden>Logout</button>
 
             <form id="loginForm" class="auth-form is-active" method="POST" novalidate>
                 <label>
