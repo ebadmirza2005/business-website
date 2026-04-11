@@ -15,10 +15,6 @@
     <header>
         <a href="#home" class="brand" aria-label="Fast Pro Tech Home">
             <img class="logo" src="assets/logo.png" alt="Faaz Pro Tech logo" width="350" height="300" loading="eager" fetchpriority="high" decoding="async">
-            <!-- <video autoplay muted loop>
-                <source src="assets/logo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video> -->
         </a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"
@@ -34,21 +30,7 @@
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
-            <div class="user-chip nav-user-chip" id="navUserChip" hidden>
-                <span class="avatar" id="navUserAvatar" aria-hidden="true">U</span>
-                <span class="user-name" id="navUserName">User</span>
-                <button class="logout-btn" id="navLogoutBtn" type="button">Logout</button>
-            </div>
         </nav>
-
-        <div class="auth-controls">
-            <button class="btn btn-ghost auth-open" id="openAuth" type="button">Login / Signup</button>
-            <div class="user-chip" id="userChip" hidden>
-                <span class="avatar" id="userAvatar" aria-hidden="true">U</span>
-                <span class="user-name" id="userName">User</span>
-                <button class="logout-btn" id="logoutBtn" type="button">Logout</button>
-            </div>
-        </div>
     </header>
 
     <main>
