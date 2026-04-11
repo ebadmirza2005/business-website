@@ -18,6 +18,29 @@ function getEnvValue(string $key, array $envFileData): string
     return '';
 }
 
+function isJsonRequest(): bool
+{
+    $accept = $_SERVER['HTTP_ACCEPT'] ?? '';
+    $xrw = $_SERVER['HTTP_X_REQUESTED_WITH'] ?? '';
+    return stripos($accept, 'application/json') !== false || strcasecmp($xrw, 'XMLHttpRequest') === 0;
+}
+
+function failDbConnection(string $message, bool $isLocal): void
+{
+    http_response_code(500);
+
+    if (isJsonRequest()) {
+        header('Content-Type: application/json');
+        echo json_encode([
+            'success' => false,
+            'message' => $isLocal ? $message : 'Database connection failed. Please contact support.'
+        ]);
+        exit;
+    }
+
+    die($isLocal ? ('ERROR: ' . $message) : 'Database connection failed. Please contact support.');
+}
+
 $serverName = $_SERVER['SERVER_NAME'] ?? '';
 $httpHost = $_SERVER['HTTP_HOST'] ?? '';
 $isLocal = in_array($serverName, ['localhost', '127.0.0.1'], true)
@@ -41,17 +64,14 @@ if ($isLocal) {
     $db = getEnvValue('DB_NAME', $envFileData);
 
     if ($user === '' || $db === '') {
-        die('Database configuration is missing. Set DB_HOST, DB_USER, DB_PASS, DB_NAME.');
+        failDbConnection('Database configuration is missing. Set DB_HOST, DB_USER, DB_PASS, DB_NAME.', $isLocal);
     }
 }
 
 $conn = @new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
-    if ($isLocal) {
-        die('ERROR: ' . $conn->connect_error);
-    }
-    die('Database connection failed. Please contact support.');
+    failDbConnection($conn->connect_error, $isLocal);
 }
 
 $conn->set_charset('utf8mb4');
