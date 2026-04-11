@@ -1,5 +1,4 @@
 const loader = document.getElementById("pageLoader");
-let aosInitialized = false;
 const pageHeader = document.querySelector("header");
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("primaryNav");
@@ -43,18 +42,36 @@ const syncHeaderOnScroll = () => {
   pageHeader.classList.toggle("is-scrolled", getScrollTop() > 2);
 };
 
-const initAos = () => {
-  if (aosInitialized || !window.AOS) {
+const setupScrollReveal = () => {
+  const revealTargets = document.querySelectorAll(
+    ".detail-section > span, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-about .about-card, .section-contact .contact-box, .footer-details > *",
+  );
+
+  if (!revealTargets.length || reducedMotionQuery.matches) {
     return;
   }
 
-  window.AOS.init({
-    duration: 700,
-    easing: "ease-out-cubic",
-    once: true,
-    offset: 84,
+  revealTargets.forEach((target, index) => {
+    target.classList.add("reveal-item");
+    target.style.setProperty("--reveal-delay", `${Math.min(index * 70, 350)}ms`);
   });
-  aosInitialized = true;
+
+  const observer = new IntersectionObserver(
+    (entries, observerInstance) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observerInstance.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.14,
+      rootMargin: "0px 0px -8% 0px",
+    },
+  );
+
+  revealTargets.forEach((target) => observer.observe(target));
 };
 
 if (loader) {
@@ -68,8 +85,6 @@ if (loader) {
     loaderHidden = true;
     loader.classList.add("is-hidden");
     document.body.classList.remove("is-loading");
-    initAos();
-    window.AOS?.refreshHard();
   };
 
   window.addEventListener("load", () => {
@@ -77,13 +92,13 @@ if (loader) {
   });
 
   window.setTimeout(hideLoader, 5000);
-} else {
-  initAos();
 }
 
 if (year) {
   year.textContent = new Date().getFullYear();
 }
+
+setupScrollReveal();
 
 syncHeaderOnScroll();
 window.addEventListener("scroll", syncHeaderOnScroll, { passive: true });
@@ -124,7 +139,11 @@ document.addEventListener("click", (event) => {
   }
 
   event.preventDefault();
-  targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  const prefersReducedMotion = reducedMotionQuery.matches;
+  targetElement.scrollIntoView({
+    behavior: prefersReducedMotion ? "auto" : "smooth",
+    block: "start",
+  });
   history.replaceState(null, "", `#${targetId}`);
 });
 
@@ -449,17 +468,29 @@ if (navLogoutBtn) {
 updateAuthUI();
 
 const canvas = document.getElementById("web");
+const prefersDataSaver = Boolean(navigator.connection?.saveData);
+const lowCpuDevice =
+  typeof navigator.hardwareConcurrency === "number" &&
+  navigator.hardwareConcurrency > 0 &&
+  navigator.hardwareConcurrency <= 4;
+const mobileViewport = window.matchMedia("(max-width: 820px)").matches;
+const enableCanvasAnimation =
+  !reducedMotionQuery.matches && !prefersDataSaver && !lowCpuDevice && !mobileViewport;
 
-if (canvas && !reducedMotionQuery.matches) {
+if (canvas && enableCanvasAnimation) {
   const ctx = canvas.getContext("2d");
   const particles = [];
   const viewportArea = window.innerWidth * window.innerHeight;
-  const particleCount = Math.min(44, Math.max(24, Math.floor(viewportArea / 36000)));
-  const linkDistance = 110;
+  const particleCount = Math.min(30, Math.max(14, Math.floor(viewportArea / 52000)));
+  const linkDistance = 100;
+  const linkDistanceSq = linkDistance * linkDistance;
+  const targetFps = 30;
+  const frameInterval = 1000 / targetFps;
 
   if (ctx) {
     let rafId = 0;
     let canvasVisible = true;
+    let lastFrameTime = 0;
 
     const clampToCanvas = (value, max) => Math.min(Math.max(value, 0), max);
 
@@ -487,8 +518,8 @@ if (canvas && !reducedMotionQuery.matches) {
       reset() {
         this.x = Math.random() * canvas.clientWidth;
         this.y = Math.random() * canvas.clientHeight;
-        this.vx = Math.random() * 0.8 - 0.4;
-        this.vy = Math.random() * 0.8 - 0.4;
+        this.vx = Math.random() * 0.6 - 0.3;
+        this.vy = Math.random() * 0.6 - 0.3;
       }
 
       move() {
@@ -526,9 +557,10 @@ if (canvas && !reducedMotionQuery.matches) {
         for (let j = i + 1; j < particles.length; j += 1) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distanceSq = dx * dx + dy * dy;
 
-          if (distance < linkDistance) {
+          if (distanceSq < linkDistanceSq) {
+            const distance = Math.sqrt(distanceSq);
             const alpha = 1 - distance / linkDistance;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -541,7 +573,13 @@ if (canvas && !reducedMotionQuery.matches) {
       }
     };
 
-    const animate = () => {
+    const animate = (timestamp) => {
+      if (timestamp - lastFrameTime < frameInterval) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
+
+      lastFrameTime = timestamp;
       ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
       particles.forEach((particle) => {
@@ -555,7 +593,8 @@ if (canvas && !reducedMotionQuery.matches) {
 
     const startAnimation = () => {
       if (!rafId && canvasVisible) {
-        animate();
+        lastFrameTime = 0;
+        rafId = requestAnimationFrame(animate);
       }
     };
 
@@ -618,6 +657,8 @@ if (canvas && !reducedMotionQuery.matches) {
       observer.observe(canvas);
     }
   }
+} else if (canvas) {
+  canvas.style.display = "none";
 }
 
 const btn = document.getElementById("seeMoreBtn");
@@ -657,163 +698,3 @@ if (btn) {
   });
 }
 
-const digitalCards = document.querySelectorAll(".section-service-digital .card");
-
-if (digitalCards.length) {
-  digitalCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const shouldFlip = !card.classList.contains("is-flipped");
-
-      digitalCards.forEach((item) => item.classList.remove("is-flipped"));
-
-      if (shouldFlip) {
-        card.classList.add("is-flipped");
-      }
-    });
-  });
-}
-
-const packageMatrix = {
-  web: {
-    starter: [
-      "Starter - $299: 5-page responsive website",
-      "Mobile-friendly layout with contact form",
-      "Basic on-page SEO setup",
-    ],
-    business: [
-      "Business - $599: 10-page site + booking form",
-      "Speed optimization and lead capture sections",
-      "Google indexing plus analytics setup",
-    ],
-    pro: [
-      "Pro - $999: Custom CMS + complete SEO setup",
-      "Advanced animations and conversion-focused pages",
-      "Priority support and monthly performance report",
-    ],
-  },
-  app: {
-    starter: [
-      "Starter - $699: Single-platform app (Android or iOS)",
-      "Clean UI with 4 to 6 screens",
-      "Play Store/App Store basic guidance",
-    ],
-    business: [
-      "Business - $1,199: Cross-platform app + API integration",
-      "Auth, dashboard and push notification setup",
-      "Performance tuning and QA testing",
-    ],
-    pro: [
-      "Pro - $1,999: Full app + admin panel + deployment",
-      "Scalable architecture with advanced analytics",
-      "3 months priority maintenance support",
-    ],
-  },
-  logo: {
-    starter: [
-      "Starter - $79: 2 logo concepts + PNG/JPG files",
-      "Brand color suggestions and typography pair",
-      "2 revision rounds included",
-    ],
-    business: [
-      "Business - $149: 4 concepts + 3 revisions",
-      "Social profile kit and transparent assets",
-      "Source file in AI/EPS formats",
-    ],
-    pro: [
-      "Pro - $249: Complete logo kit + brand guide",
-      "Mockups for web, print and packaging",
-      "Priority delivery and strategy call",
-    ],
-  },
-  graphic: {
-    starter: [
-      "Starter - $129: 10 social media posts",
-      "Branded layouts for FB and Instagram",
-      "Delivery in editable and export formats",
-    ],
-    business: [
-      "Business - $249: Brochure + banner + post set",
-      "Campaign-focused creative direction",
-      "3 revision rounds for final polish",
-    ],
-    pro: [
-      "Pro - $399: Monthly creative design support",
-      "Ad creatives, carousel kits and promo visuals",
-      "Dedicated designer with quick turnaround",
-    ],
-  },
-  marketing: {
-    starter: [
-      "Starter - $199: Social media setup + weekly posts",
-      "Profile optimization and content calendar",
-      "Basic growth tracking report",
-    ],
-    business: [
-      "Business - $399: Ads management + lead tracking",
-      "Audience targeting and conversion creatives",
-      "Weekly optimization with KPI reports",
-    ],
-    pro: [
-      "Pro - $799: Full funnel marketing + monthly reports",
-      "Performance campaigns across multiple channels",
-      "Strategy, automation and remarketing setup",
-    ],
-  },
-};
-
-const highlightPriceInItem = (item) => {
-  const priceMatch = item.match(/\$[\d,]+/);
-  if (!priceMatch) {
-    return item;
-  }
-
-  const [price] = priceMatch;
-  return item.replace(
-    price,
-    `<span class="package-price" aria-label="Price ${price}">${price}</span>`,
-  );
-};
-
-const renderPackageForPanel = (panel, tier) => {
-  if (!panel) {
-    return;
-  }
-
-  const service = panel.dataset.service;
-  const list = panel.querySelector(".package-list");
-  const packageItems = packageMatrix[service]?.[tier];
-
-  if (!list || !packageItems) {
-    return;
-  }
-
-  list.innerHTML = packageItems
-    .map((item) => `<li>${highlightPriceInItem(item)}</li>`)
-    .join("");
-};
-
-const packagePanels = document.querySelectorAll(".section-service-digital .package-panel[data-service]");
-
-if (packagePanels.length) {
-  packagePanels.forEach((panel) => {
-    const buttons = panel.querySelectorAll("[data-tier]");
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const tier = button.dataset.tier;
-        if (!tier) {
-          return;
-        }
-
-        buttons.forEach((item) => item.classList.remove("is-active"));
-        button.classList.add("is-active");
-        renderPackageForPanel(panel, tier);
-      });
-    });
-
-    renderPackageForPanel(panel, "starter");
-  });
-}

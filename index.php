@@ -6,20 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Faaz Pro Tech</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20260409-1">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/logo.png">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-        rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <header data-aos="fade-down" data-aos-duration="650">
+    <header>
         <a href="#home" class="brand" aria-label="Fast Pro Tech Home">
             <img class="logo" src="assets/logo.png" alt="Faaz Pro Tech logo" width="350" height="300" loading="eager" fetchpriority="high" decoding="async">
             <!-- <video autoplay muted loop>
@@ -69,7 +62,7 @@
                     <span>T</span>ech
                 </h2>
             </div>
-            <div class="detail-section" data-aos="fade-left" data-aos-duration="700">
+            <div class="detail-section">
                 <span>
                     <p>
                         We provide expert web and app development, creative design, and result-driven
@@ -100,12 +93,12 @@
         </section>
 
         <section class="section-service-bpo">
-            <h2 id="service" data-aos="fade-down" data-aos-duration="650"><span>Our</span> <span>BPO</span> <span>Services</span></h2>
-            <div class="service-card" data-aos="fade-up" data-aos-duration="700">
+            <h2 id="service"><span>Our</span> <span>BPO</span> <span>Services</span></h2>
+            <div class="service-card">
                 <div class="card">
                     <div class="lines"></div>
                     <div class="imgBx">
-                        <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async">
+                        <!-- <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async"> -->
                     </div>
                     <div class="content">
                         <div class="details">
@@ -117,7 +110,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -131,7 +124,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -145,7 +138,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -158,7 +151,7 @@
                     <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -171,7 +164,7 @@
                      <div class="card">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -184,7 +177,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -197,7 +190,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -210,7 +203,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -223,7 +216,7 @@
                      <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async">
+                            <!-- <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -237,7 +230,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async">
+                            <!-- <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -250,7 +243,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/high-volume-data-entry.png" alt="High volume data entry service" loading="lazy" decoding="async">
+                            <!-- <img src="assets/high-volume-data-entry.png" alt="High volume data entry service" loading="lazy" decoding="async"> --> 
                         </div>
                         <div class="content">
                             <div class="details">
@@ -264,7 +257,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async">
+                            <!-- <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -277,7 +270,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async">
+                            <!-- <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -290,7 +283,7 @@
                     <div class="card hidden">
                         <div class="lines"></div>
                         <div class="imgBx">
-                            <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async">
+                            <!-- <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async"> -->
                         </div>
                         <div class="content">
                             <div class="details">
@@ -301,16 +294,14 @@
                     </div>
             </div>
 
-            <button id="seeMoreBtn" data-aos="fade-up" data-aos-duration="650">See More</button>
+            <button id="seeMoreBtn">See More</button>
         </section>
 
         <section class="section-service-digital">
-                <h2 data-aos="fade-down" data-aos-duration="650"><span>Our</span> <span>Digital</span> <span>Services</span></h2>
-                <div class="service-card" data-aos="fade-up" data-aos-duration="700">
+                <h2><span>Our</span> <span>Digital</span> <span>Services</span></h2>
+                <div class="service-card">
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="card-flip">
-                            <div class="card-face card-front">
                                 <div class="imgBx">
                                     <label for="">🌐</label>
                                 </div>
@@ -321,134 +312,51 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-face card-back">
-                                <div class="package-panel" data-service="web">
-                                    <h4>Web Development Packages</h4>  
-                                    <div class="package-link">
-                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
-                                       <button type="button" data-tier="business">Business</button>
-                                       <button type="button" data-tier="pro">Pro</button>
-                                    </div>
-                                    
-                                    <ul class="package-list">
-                                    </ul>
-                                </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <label>📱</label>
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>App Development</h3>
+                                <p>Creating powerful mobile applications for Android and iOS platforms.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="card-flip">
-                            <div class="card-face card-front">
-                                <div class="imgBx">
-                                    <label>📱</label>
-                                </div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h3>App Development</h3>
-                                        <p>Creating powerful mobile applications for Android and iOS platforms.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <div class="package-panel" data-service="app">
-                                    <h4>App Development Packages</h4>
-                                    <div class="package-link">
-                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
-                                       <button type="button" data-tier="business">Business</button>
-                                       <button type="button" data-tier="pro">Pro</button>
-                                    </div>
-            
-                                    <ul class="package-list">
-                                    </ul>
-                                </div>
+                        <div class="imgBx">
+                            <label>🎨</label>
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Logo Design</h3>
+                                <p>Designing unique and memorable logos that represent a brand's identity.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="card-flip">
-                            <div class="card-face card-front">
-                                <div class="imgBx">
-                                    <label>🎨</label>
-                                </div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h3>Logo Design</h3>
-                                        <p>Designing unique and memorable logos that represent a brand's identity.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <div class="package-panel" data-service="logo">
-                                    <h4>Logo Design Packages</h4>
-                                    <div class="package-link">
-                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
-                                       <button type="button" data-tier="business">Business</button>
-                                       <button type="button" data-tier="pro">Pro</button>
-                                    </div>
-                                    
-                                    <ul class="package-list">
-                                    </ul>
-                                </div>
+                        <div class="imgBx">
+                            <label>🖌️</label>
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Graphic Design</h3>
+                                <p>Crafting visually appealing designs for digital and print media.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="lines"></div>
-                        <div class="card-flip">
-                            <div class="card-face card-front">
-                                <div class="imgBx">
-                                    <label>🖌️</label>
-                                </div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h3>Graphic Design</h3>
-                                        <p>Crafting visually appealing designs for digital and print media.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <div class="package-panel" data-service="graphic">
-                                    <h4>Graphic Design Packages</h4>
-                                    <div class="package-link">
-                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
-                                       <button type="button" data-tier="business">Business</button>
-                                       <button type="button" data-tier="pro">Pro</button>
-                                    </div>
-                                    
-                                    <ul class="package-list">
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="imgBx">
+                            <label>📈</label>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="card-flip">
-                            <div class="card-face card-front">
-                                <div class="imgBx">
-                                    <label>📈</label>
-                                </div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h3>Marketing</h3>
-                                        <p>Promoting products and services to reach the right audience and grow business.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <div class="package-panel" data-service="marketing">
-                                    <h4>Marketing Packages</h4>
-                                    <div class="package-link">
-                                       <button type="button" data-tier="starter" class="is-active">Starter</button>
-                                       <button type="button" data-tier="business">Business</button>
-                                       <button type="button" data-tier="pro">Pro</button>
-                                    </div>
-                                    
-                                    <ul class="package-list">
-                                    </ul>
-                                </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Marketing</h3>
+                                <p>Promoting products and services to reach the right audience and grow business.</p>
                             </div>
                         </div>
                     </div>
@@ -456,7 +364,7 @@
         </section>
 
         <section class="section-about" id="about">
-            <div class="about-card" data-aos="fade-right" data-aos-duration="700">
+            <div class="about-card">
                 <p class="about-eyebrow">About Us</p>
                 <h2>About Faaz Pro Tech</h2>
                 <p class="about-lead">
@@ -480,7 +388,7 @@
                 </div>
                 <a href="#contact" class="btn btn-primary about-cta" style="margin-top: 20px;">Start Your Project</a>
             </div>
-            <div class="about-card about-checklist" data-aos="fade-left" data-aos-duration="700">
+            <div class="about-card about-checklist">
                 <h3>How We Work</h3>
                 <p>From kickoff to delivery, every project follows a clear and transparent process.</p>
                 <ul>
@@ -493,7 +401,7 @@
         </section>
 
         <section class="section-contact" id="contact">
-            <div class="contact-box" data-aos="zoom-in" data-aos-duration="700">
+            <div class="contact-box">
                 <h2>Let's build your next data workflow</h2>
                 <p>Share your requirements and get a quick response from our team.</p>
                 <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
@@ -552,9 +460,7 @@
         </div>
 
         <div class="footer-bottom">
-            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
-                <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
-            </marquee>
+            <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
         </div>
     </footer>
 
@@ -603,8 +509,7 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="script.js?v=20260409-4" defer></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
