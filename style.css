@@ -27,19 +27,17 @@
 }
 
 body {
-    scroll-behavior: auto;
     min-height: 100vh;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     color: var(--text-main);
     background:
-        radial-gradient(circle at 12% 10%, rgba(120, 240, 196, 0.16), transparent 38%),
-        radial-gradient(circle at 86% 12%, rgba(255, 190, 59, 0.18), transparent 44%),
+        radial-gradient(circle at 12% 10%, rgba(120, 240, 196, 0.12), transparent 38%),
+        radial-gradient(circle at 86% 12%, rgba(255, 190, 59, 0.12), transparent 44%),
         linear-gradient(160deg, #041225 0%, #0a2e4d 45%, #061a31 100%);
-    background-attachment: fixed;
-    position: relative;
-    isolation: isolate;
+    background-attachment: scroll; /* 🔥 FIX LAG */
     overflow-x: hidden;
     overflow-y: auto;
+    will-change: scroll-position;
 }
 
 html {
@@ -144,6 +142,13 @@ header .logo {
     width: clamp(150px, 22vw, 210px);
     height: auto;
     margin-top: 14px;
+}
+
+header,
+.about-card,
+.contact-box {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
 }
 
 nav {
@@ -552,6 +557,8 @@ main {
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.36);
     cursor: pointer;
     margin-inline: auto;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .section-service-digital .service-card {
