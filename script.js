@@ -134,8 +134,10 @@ const postForm = async (url, payload) => {
     data = JSON.parse(raw);
   } catch {
     const cleanMessage = raw.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    const fallback = `HTTP ${response.status}${response.statusText ? ` ${response.statusText}` : ""}`;
+    const detail = cleanMessage || raw.trim().slice(0, 220) || fallback;
     throw new Error(
-      cleanMessage || "Server returned an invalid response. Please try again.",
+      `Server error from ${url}: ${detail}`,
     );
   }
 

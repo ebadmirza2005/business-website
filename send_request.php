@@ -3,6 +3,25 @@
 ob_start();
 ini_set("display_errors", "0");
 
+register_shutdown_function(static function (): void {
+    $error = error_get_last();
+    if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        if (!headers_sent()) {
+            header('Content-Type: application/json');
+            http_response_code(500);
+        }
+
+        if (ob_get_length()) {
+            ob_clean();
+        }
+
+        echo json_encode([
+            'success' => false,
+            'message' => 'A server error occurred. Please try again.'
+        ]);
+    }
+});
+
 header("Content-Type: application/json");
 
 require __DIR__ . "/vendor/autoload.php";
