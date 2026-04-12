@@ -1,0 +1,23 @@
+# Environment variables (never commit actual credentials)
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+vendor/
+node_modules/
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+~*
