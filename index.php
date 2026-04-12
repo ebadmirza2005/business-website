@@ -374,7 +374,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <span class="price">$50</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -394,7 +394,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <span class="price">$50</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -415,7 +415,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <span class="price">$50</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -440,7 +440,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <span class="price">$50</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -459,7 +459,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <span class="price">$50</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -478,7 +478,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <span class="price">$50</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -650,8 +650,8 @@
 
     <!-- Test Payment Section -->
     <div id="testPaymentSection" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 999; background: rgba(1, 13, 22, 0.95); padding: 1rem; border: 2px solid #00d9ff; border-radius: 12px;">
-        <p style="margin: 0 0 0.5rem 0; color: #d7ffdf; font-size: 0.9rem;">💧 Test Payment (500)</p>
-        <button id="testPaymentBtn" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Test Payment 500</button>
+        <p style="margin: 0 0 0.5rem 0; color: #d7ffdf; font-size: 0.9rem;">💧 Test Payment (50)</p>
+        <button id="testPaymentBtn" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Test Payment 50</button>
     </div>
 
     <!-- Payment Modal -->

@@ -785,10 +785,9 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
 
 if (testPaymentBtn) {
   testPaymentBtn.addEventListener('click', () => {
-    // 500 in smallest currency unit (500 rupees or 500 cents depending on currency)
-    // For INR it would be 500 paise = 5 rupees, so we'll use 50000 paise = 500 rupees
-    const testAmount = 50000; // 500 rupees in smallest unit
-    openPaymentModal('Test Payment 500 Rs', testAmount, 'test');
+    // 5000 in smallest currency unit (50 rupees in paise or $50 USD)
+    const testAmount = 5000; // 50 rupees/dollars in smallest unit
+    openPaymentModal('Test Payment 50 Rs', testAmount, 'test');
   });
 }
 
