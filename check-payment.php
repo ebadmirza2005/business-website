@@ -1,8 +1,9 @@
 <?php
+require_once 'config-env.php';
 require_once 'db.php';
 require_once 'vendor/autoload.php';
 
-\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY'] ?? 'sk_test_your_secret_key');
+\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
 header('Content-Type: application/json');
 

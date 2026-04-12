@@ -1,8 +1,9 @@
 <?php
+require_once 'config-env.php';
 require_once 'db.php';
 require_once 'vendor/autoload.php';
 
-\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY'] ?? 'sk_test_your_secret_key');
+\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
 header('Content-Type: application/json');
 
@@ -35,10 +36,10 @@ try {
 
     // Database connection
     $conn = new mysqli(
-        $_ENV['DB_HOST'] ?? 'localhost',
-        $_ENV['DB_USER'] ?? 'root',
-        $_ENV['DB_PASS'] ?? '',
-        $_ENV['DB_NAME'] ?? 'business_website'
+        env('DB_HOST', 'localhost'),
+        env('DB_USER', 'root'),
+        env('DB_PASS', ''),
+        env('DB_NAME', 'business_website')
     );
 
     if ($conn->connect_error) {

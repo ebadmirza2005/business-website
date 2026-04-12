@@ -1,15 +1,16 @@
 <?php
+require_once 'config-env.php';
 require_once 'db.php';
 require_once 'vendor/autoload.php';
 require_once 'smtp_config.php';
 
-\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY'] ?? 'sk_test_your_secret_key');
+\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
 header('Content-Type: application/json');
 
 try {
     // Verify webhook signature
-    $endpoint_secret = $_ENV['STRIPE_WEBHOOK_SECRET'] ?? '';
+    $endpoint_secret = env('STRIPE_WEBHOOK_SECRET', '');
     $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? '';
     $body = file_get_contents('php://input');
 
