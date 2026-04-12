@@ -140,7 +140,7 @@
                     <div class="card">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
+                            <img src="assets/data-entry.jpg" alt="Advanced data entry service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">

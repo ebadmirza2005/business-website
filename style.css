@@ -444,8 +444,22 @@ main section {
 } */
 
 .imgBx {
-    font-size: 1.8rem;
-    margin-bottom: 0.6rem;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 0.75rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.imgBx img {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
 }
 
 .details h3 {
