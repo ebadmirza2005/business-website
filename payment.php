@@ -1,11 +1,15 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '0'); // Don't display errors on output
+ini_set('log_errors', '1');
+
 require_once 'config-env.php';
 require_once 'db.php';
 require_once 'vendor/autoload.php';
 
-\Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-
-header('Content-Type: application/json');
+// Set strict JSON header FIRST before any output
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-cache, no-store, must-revalidate');
 
 try {
     $input = json_decode(file_get_contents('php://input'), true);
@@ -28,6 +32,13 @@ try {
     if ($amount <= 0 || $amount > 999999) {
         throw new Exception('Invalid amount');
     }
+
+    // Setup Stripe
+    $stripe_key = env('STRIPE_SECRET_KEY');
+    if (!$stripe_key) {
+        throw new Exception('Stripe API key not configured');
+    }
+    \Stripe\Stripe::setApiKey($stripe_key);
 
     // Validate email
     if (!$email) {

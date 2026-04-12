@@ -685,18 +685,27 @@ if (paymentForm) {
         })
       });
 
-      const data = await response.json();
+      // Get response text first to handle parsing errors
+      const responseText = await response.text();
+      
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('JSON Parse Error. Response was:', responseText);
+        throw new Error('Server error: Invalid response format. Response: ' + responseText.substring(0, 200));
+      }
 
       if (!response.ok) {
-        throw new Error(data.message || 'Payment failed');
+        throw new Error(data.message || data.error || 'Payment failed: ' + response.status);
       }
 
       if (!data.success) {
-        throw new Error(data.message || 'Unable to create checkout session');
+        throw new Error(data.message || data.error || 'Unable to create checkout session');
       }
 
       if (!data.sessionUrl) {
-        throw new Error('Invalid checkout session');
+        throw new Error('Invalid checkout session - no session URL received');
       }
 
       // Redirect to Stripe Checkout
