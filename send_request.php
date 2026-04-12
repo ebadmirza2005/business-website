@@ -25,18 +25,11 @@ register_shutdown_function(static function (): void {
 header("Content-Type: application/json");
 
 $autoloadPath = __DIR__ . '/vendor/autoload.php';
-if (!is_file($autoloadPath)) {
-    if (ob_get_length()) {
-        ob_clean();
-    }
-    echo json_encode([
-        'success' => false,
-        'message' => 'Mailer dependencies are missing. Run composer install on the server.'
-    ]);
-    exit;
-}
+$phpMailerAvailable = false;
 
-require $autoloadPath;
+if (is_file($autoloadPath)) {
+    require $autoloadPath;
+}
 
 if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
     $phpMailerSrc = __DIR__ . '/vendor/phpmailer/phpmailer/src';
@@ -48,26 +41,14 @@ if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
 
     foreach ($requiredFiles as $file) {
         if (!is_file($file)) {
-            if (ob_get_length()) {
-                ob_clean();
-            }
-            echo json_encode([
-                'success' => false,
-                'message' => 'PHPMailer library files are missing on server. Re-upload vendor folder or run composer install.'
-            ]);
-            exit;
+            break;
         }
 
         require_once $file;
     }
 }
 
-if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
-    sendJson([
-        'success' => false,
-        'message' => 'PHPMailer could not be loaded. Run composer dump-autoload or re-install dependencies.'
-    ]);
-}
+$phpMailerAvailable = class_exists('PHPMailer\\PHPMailer\\PHPMailer');
 
 function sendJson(array $payload): void
 {
@@ -152,13 +133,6 @@ $smtpDebugLog = [];
 // Gmail App Password is commonly copied with spaces; normalize it safely.
 $smtpPass = trim(str_replace(" ", "", $smtpPass));
 
-if ($smtpUser === "" || $smtpPass === "") {
-    sendJson([
-        "success" => false,
-        "message" => "SMTP is not configured. Please update smtp_config.php username and password."
-    ]);
-}
-
 $to = $smtpTo;
 $subject = "New Contact Request - Faaz Pro Tech";
 
@@ -167,57 +141,82 @@ $body = "You have received a new contact request from your website.\n\n"
     . "Email: {$email}\n\n"
     . "Message:\n{$message}\n";
 
-try {
-    $mailer = new \PHPMailer\PHPMailer\PHPMailer(true);
-    $mailer->isSMTP();
-    $mailer->Host = $smtpHost;
-    $mailer->SMTPAuth = true;
-    $mailer->Username = $smtpUser;
-    $mailer->Password = $smtpPass;
-    $mailer->Hostname = parse_url('https://' . preg_replace('/^mailto:/', '', $smtpFrom), PHP_URL_HOST) ?: 'faazprotech.com';
-    $mailer->SMTPSecure = $smtpEncryption === "ssl"
-        ? \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
-        : \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-    $mailer->Port = $smtpPort;
-    $mailer->CharSet = "UTF-8";
-    if ($smtpDebug) {
-        $mailer->SMTPDebug = 2;
-        $mailer->Debugoutput = static function ($str, $level) use (&$smtpDebugLog): void {
-            $smtpDebugLog[] = trim("[{$level}] {$str}");
-        };
+if ($phpMailerAvailable) {
+    if ($smtpUser === "" || $smtpPass === "") {
+        sendJson([
+            "success" => false,
+            "message" => "SMTP is not configured. Please update smtp_config.php username and password."
+        ]);
     }
-    $mailer->SMTPOptions = [
-        "ssl" => [
-            "verify_peer" => false,
-            "verify_peer_name" => false,
-            "allow_self_signed" => true,
-        ],
+
+    try {
+        $mailer = new \PHPMailer\PHPMailer\PHPMailer(true);
+        $mailer->isSMTP();
+        $mailer->Host = $smtpHost;
+        $mailer->SMTPAuth = true;
+        $mailer->Username = $smtpUser;
+        $mailer->Password = $smtpPass;
+        $mailer->Hostname = parse_url('https://' . preg_replace('/^mailto:/', '', $smtpFrom), PHP_URL_HOST) ?: 'faazprotech.com';
+        $mailer->SMTPSecure = $smtpEncryption === "ssl"
+            ? \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
+            : \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mailer->Port = $smtpPort;
+        $mailer->CharSet = "UTF-8";
+        if ($smtpDebug) {
+            $mailer->SMTPDebug = 2;
+            $mailer->Debugoutput = static function ($str, $level) use (&$smtpDebugLog): void {
+                $smtpDebugLog[] = trim("[{$level}] {$str}");
+            };
+        }
+        $mailer->SMTPOptions = [
+            "ssl" => [
+                "verify_peer" => false,
+                "verify_peer_name" => false,
+                "allow_self_signed" => true,
+            ],
+        ];
+
+        $mailer->Sender = $smtpFrom;
+        $mailer->setFrom($smtpFrom, $smtpFromName);
+        $mailer->addAddress($to);
+        $mailer->addReplyTo($email, $name);
+
+        $mailer->Subject = $subject;
+        $mailer->Body = $body;
+        $mailer->AltBody = $body;
+        $mailer->isHTML(false);
+
+        $mailer->send();
+    } catch (Throwable $e) {
+        $errorText = $e->getMessage();
+        $hint = "";
+
+        if (stripos($errorText, "authenticate") !== false) {
+            $hint = " Use your Hostinger mailbox password, and make sure SMTP host, port, and encryption match Hostinger settings.";
+        }
+
+        sendJson([
+            "success" => false,
+            "message" => "Message could not be sent. SMTP error: " . $errorText . $hint
+                . ($smtpDebug && !empty($smtpDebugLog) ? " | Debug: " . implode(" || ", $smtpDebugLog) : "")
+        ]);
+    }
+} else {
+    $headers = [
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . $smtpFromName . ' <' . $smtpFrom . '>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+        'X-Mailer: PHP/' . PHP_VERSION,
     ];
 
-    $mailer->Sender = $smtpFrom;
-    $mailer->setFrom($smtpFrom, $smtpFromName);
-    $mailer->addAddress($to);
-    $mailer->addReplyTo($email, $name);
-
-    $mailer->Subject = $subject;
-    $mailer->Body = $body;
-    $mailer->AltBody = $body;
-    $mailer->isHTML(false);
-
-    $mailer->send();
-} catch (Throwable $e) {
-    $errorText = $e->getMessage();
-    $hint = "";
-
-    if (stripos($errorText, "authenticate") !== false) {
-        $hint = " Use your Hostinger mailbox password, and make sure SMTP host, port, and encryption match Hostinger settings.";
+    $mailSent = @mail($to, $subject, $body, implode("\r\n", $headers));
+    if (!$mailSent) {
+        sendJson([
+            'success' => false,
+            'message' => 'Mailer dependency is missing and PHP mail() is not available on this server. Install Composer dependencies or enable mail sending in hosting panel.'
+        ]);
     }
-
-    sendJson([
-        "success" => false,
-        "message" => "Message could not be sent. SMTP error: " . $errorText . $hint
-            . ($smtpDebug && !empty($smtpDebugLog) ? " | Debug: " . implode(" || ", $smtpDebugLog) : "")
-    ]);
 }
 
 sendJson([
