@@ -439,10 +439,6 @@ main section {
 
 
 
-/* .lines {
-    display: none;
-} */
-
 .imgBx {
     margin: 0 auto;
     width: 100px;
@@ -665,6 +661,289 @@ button[disabled] {
     opacity: 0.7;
 }
 
+.section-packages {
+    padding: 3.2rem 0;
+}
+
+.packages-container {
+    display: grid;
+    gap: 2.2rem;
+}
+
+.packages-container h2 {
+    text-align: center;
+    margin: auto;
+    font-family: "Urbanist", sans-serif;
+    font-size: clamp(1.52rem, 3.1vw, 2.35rem);
+    letter-spacing: 0.03em;
+    color: var(--brand);
+    padding-bottom: 10px;
+    width: fit-content;
+    border-bottom: 4px solid var(--brand);
+    margin-bottom: 0;
+}
+
+.packages-intro {
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 1.12rem;
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+}
+
+.packages-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.package-tab-btn {
+    padding: 0.7rem 1.4rem;
+    border-radius: 12px;
+    border: 2px solid rgba(33, 198, 255, 0.4);
+    background: rgba(33, 198, 255, 0.08);
+    color: #9fb8c8;
+    font-family: "Urbanist", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.package-tab-btn:hover {
+    border-color: rgba(33, 198, 255, 0.8);
+    background: rgba(33, 198, 255, 0.15);
+    color: var(--brand);
+}
+
+.package-tab-btn.is-active {
+    border-color: var(--brand);
+    background: rgba(33, 198, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(33, 198, 255, 0.3);
+}
+
+.packages-grid-wrapper {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.packages-grid-wrapper.is-active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.package-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+    padding: 1.6rem;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(33, 198, 255, 0.62);
+    box-shadow: 0 20px 40px rgba(3, 20, 30, 0.5);
+}
+
+.package-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(130deg, transparent 35%, rgba(255, 255, 255, 0.17) 50%, transparent 64%);
+    transform: translateX(-120%);
+    transition: transform 0.52s ease;
+    pointer-events: none;
+}
+
+.package-card:hover::before {
+    transform: translateX(120%);
+}
+
+.package-card.featured {
+    border-color: rgba(33, 198, 255, 0.8);
+    background: linear-gradient(180deg, rgba(33, 198, 255, 0.15), rgba(33, 198, 255, 0.08));
+    box-shadow: 0 0 24px rgba(33, 198, 255, 0.2);
+    transform: translateY(-12px);
+}
+
+.package-card.featured:hover {
+    border-color: rgba(33, 198, 255, 1);
+    box-shadow: 0 24px 48px rgba(33, 198, 255, 0.3);
+}
+
+.package-badge {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    display: inline-block;
+    background: linear-gradient(120deg, var(--brand), #0ba3f2);
+    color: #02243a;
+    padding: 0.32rem 0.8rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    z-index: 1;
+}
+
+.package-header {
+    margin-bottom: 1.2rem;
+}
+
+.package-header h3 {
+    font-family: "Urbanist", sans-serif;
+    font-size: 1.38rem;
+    margin-bottom: 0.32rem;
+    color: #fff;
+}
+
+.package-subtitle {
+    color: #9fb8c8;
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.package-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-bottom: 1.4rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.price {
+    font-family: "Urbanist", sans-serif;
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--brand);
+}
+
+.period {
+    color: var(--text-soft);
+    font-size: 0.88rem;
+}
+
+.package-features {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.6rem;
+    flex-grow: 1;
+}
+
+.package-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: #d0e8f4;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.package-features i {
+    color: var(--brand-2);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.package-btn {
+    width: 100%;
+    margin-top: auto;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.packages-cta {
+    text-align: center;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: rgba(33, 198, 255, 0.08);
+    border: 1px dashed rgba(33, 198, 255, 0.4);
+    color: var(--text-soft);
+}
+
+.packages-cta .link {
+    color: var(--brand);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    transition: color 0.25s ease;
+}
+
+.packages-cta .link:hover {
+    color: #fff;
+}
+
+@media (max-width: 1100px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .package-card.featured {
+        transform: translateY(0);
+    }
+
+    .service-card {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-home {
+        grid-template-columns: 1fr;
+    }
+
+    .profile {
+        justify-self: center;
+    }
+
+    .section-about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .package-card.featured {
+        transform: translateY(0);
+    }
+
+    .package-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .packages-tabs {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .package-tab-btn {
+        width: 100%;
+    }
+}
+
 .footer {
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     background:
@@ -859,6 +1138,127 @@ button[disabled] {
     padding: 0.32rem 0.62rem;
     font-size: 0.8rem;
     cursor: pointer;
+}
+
+/* Payment Modal */
+.payment-modal {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(1, 10, 16, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 1200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.payment-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.payment-panel {
+    width: min(520px, 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: linear-gradient(180deg, rgba(6, 31, 45, 0.95), rgba(3, 18, 30, 0.95));
+    padding: 1.5rem;
+    position: relative;
+}
+
+.payment-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-panel h2 {
+    font-family: "Urbanist", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.payment-panel > p {
+    color: #b9d6e5;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+
+.payment-summary {
+    background: rgba(33, 198, 255, 0.1);
+    border: 1px solid rgba(33, 198, 255, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: #d0e8f4;
+    font-size: 0.95rem;
+}
+
+.summary-item.total {
+    border-top: 1px solid rgba(33, 198, 255, 0.4);
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+    font-weight: 700;
+    color: var(--brand);
+    font-size: 1.1rem;
+}
+
+.payment-form {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.payment-form label {
+    display: grid;
+    gap: 0.36rem;
+    color: #dbf5ff;
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.payment-form input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 12px;
+    background: rgba(1, 13, 22, 0.5);
+    color: #fff;
+    padding: 0.72rem 0.84rem;
+    outline: none;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.payment-form input:focus {
+    border-color: rgba(33, 198, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(33, 198, 255, 0.18);
+}
+
+.payment-message {
+    min-height: 1.25rem;
+    font-size: 0.92rem;
+    margin-top: 0.62rem;
 }
 
 body.is-loading {

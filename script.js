@@ -19,6 +19,10 @@ const navLogoutBtn = document.getElementById("navLogoutBtn");
 const modalLogoutBtn = document.getElementById("modalLogoutBtn");
 const contactForm = document.getElementById("contactForm");
 const contactMessage = document.getElementById("contactMessage");
+const paymentModal = document.getElementById("paymentModal");
+const closePayment = document.getElementById("closePayment");
+const paymentForm = document.getElementById("paymentForm");
+const paymentMessage = document.getElementById("paymentMessage");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const SESSION_KEY = "fastprotech_current_user";
@@ -40,7 +44,7 @@ const syncHeaderOnScroll = () => {
 
 const setupScrollReveal = () => {
   const revealTargets = document.querySelectorAll(
-    ".detail-section > span, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-about .about-card, .section-contact .contact-box, .footer-details > *",
+    ".detail-section > span, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-packages h2, .packages-tabs, .packages-grid .package-card, .section-about .about-card, .section-contact .contact-box, .footer-details > *",
   );
 
   if (!revealTargets.length || reducedMotionQuery.matches) {
@@ -467,5 +471,304 @@ if (btn) {
       window.scrollTo({ top: targetY, behavior: "smooth" });
     }
   });
+}
+
+// Package Tab Switching
+const initPackageTabs = () => {
+  const packageTabButtons = document.querySelectorAll(".package-tab-btn");
+  const packageGridWrappers = document.querySelectorAll(".packages-grid-wrapper");
+
+  if (packageTabButtons.length === 0 || packageGridWrappers.length === 0) {
+    console.warn("Package tabs or wrappers not found");
+    return;
+  }
+
+  packageTabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetTab = btn.getAttribute("data-tab");
+
+      // Remove active class from all buttons and wrappers
+      packageTabButtons.forEach((button) => button.classList.remove("is-active"));
+      packageGridWrappers.forEach((wrapper) => wrapper.classList.remove("is-active"));
+
+      // Add active class to clicked button and corresponding wrapper
+      btn.classList.add("is-active");
+      const targetWrapper = document.getElementById(targetTab);
+      if (targetWrapper) {
+        targetWrapper.classList.add("is-active");
+      }
+    });
+  });
+};
+
+// Initialize package tabs when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPackageTabs);
+} else {
+  initPackageTabs();
+}
+
+// Payment Integration
+let stripe;
+let elements;
+let cardElement;
+
+// Initialize Stripe Elements (call this after Stripe is loaded)
+const initStripeElements = () => {
+  if (!stripe) {
+    console.error('Stripe not initialized. Please check your public key.');
+    return false;
+  }
+
+  try {
+    elements = stripe.elements();
+    cardElement = elements.create('card', {
+      style: {
+        base: {
+          color: '#e8f6ff',
+          fontFamily: '"Manrope", sans-serif',
+          fontSize: '16px',
+          '::placeholder': { color: '#9fb8c8' }
+        }
+      }
+    });
+    cardElement.mount('#card-element');
+
+    cardElement.addEventListener('change', (event) => {
+      const displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+    });
+
+    console.log('✓ Stripe card element mounted successfully');
+    return true;
+  } catch (error) {
+    console.error('Failed to mount card element:', error);
+    return false;
+  }
+};
+
+// Initialize Stripe with public key from backend
+const initializeStripe = async () => {
+  try {
+    const response = await fetch('config-frontend.php');
+    const config = await response.json();
+    
+    if (!config.stripePublicKey || config.stripePublicKey.includes('your_public_key')) {
+      console.error('❌ Stripe public key not configured. Please update .env file with STRIPE_PUBLIC_KEY');
+      alert('Payment system not configured. Please contact admin.');
+      return false;
+    }
+    
+    if (typeof Stripe === 'undefined') {
+      console.error('❌ Stripe.js library not loaded. Check if script tag is present.');
+      return false;
+    }
+
+    stripe = Stripe(config.stripePublicKey);
+    console.log('✓ Stripe initialized with public key: ' + config.stripePublicKey.substring(0, 10) + '...');
+
+    // Now initialize the card element
+    initStripeElements();
+    return true;
+  } catch (error) {
+    console.error('Failed to initialize Stripe:', error);
+    return false;
+  }
+};
+
+// Call initialization when DOM is ready
+const setupPaymentSystem = () => {
+  console.log('Setting up payment system...');
+  initializeStripe();
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupPaymentSystem);
+} else {
+  setupPaymentSystem();
+}
+
+const openPaymentModal = (packageName, packageAmount, packageType) => {
+  if (!paymentModal) return;
+
+  document.getElementById('paymentPackage').textContent = packageName;
+  document.getElementById('paymentAmount').textContent = '$' + (packageAmount / 100).toFixed(2);
+  document.getElementById('paymentType').textContent = packageType.charAt(0).toUpperCase() + packageType.slice(1);
+  
+  paymentModal.classList.add('is-open');
+  paymentModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('is-loading');
+
+  // Card element should be ready (initialized on page load)
+  if (!cardElement) {
+    console.warn('Card element not initialized. Attempting to initialize now...');
+    initStripeElements();
+  }
+};
+
+const closePaymentModal = () => {
+  if (!paymentModal) return;
+
+  paymentModal.classList.remove('is-open');
+  paymentModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('is-loading');
+  
+  if (paymentMessage) {
+    paymentMessage.textContent = '';
+  }
+};
+
+if (closePayment) {
+  closePayment.addEventListener('click', closePaymentModal);
+}
+
+if (paymentModal) {
+  paymentModal.addEventListener('click', (event) => {
+    if (event.target === paymentModal) {
+      closePaymentModal();
+    }
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && paymentModal?.classList.contains('is-open')) {
+    closePaymentModal();
+  }
+});
+
+if (paymentForm) {
+  paymentForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const packageName = document.getElementById('paymentPackage').textContent;
+    const packageAmount = parseFloat(document.getElementById('paymentAmount').textContent.replace('$', '')) * 100;
+    const packageType = document.getElementById('paymentType').textContent.toLowerCase();
+    const email = document.getElementById('paymentEmail').value.trim();
+
+    if (!email) {
+      setPaymentMessage('Please enter your email address', true);
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setPaymentMessage('Please enter a valid email address', true);
+      return;
+    }
+
+    const submitBtn = paymentForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      document.getElementById('paymentSubmitText').textContent = 'Processing...';
+    }
+
+    try {
+      // Validate card element exists and has data
+      if (!cardElement) {
+        throw new Error('Payment form not initialized. Please refresh and try again.');
+      }
+
+      // Send payment to backend
+      const response = await fetch('payment.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          packageName,
+          amount: Math.round(packageAmount),
+          email,
+          packageType
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Payment failed');
+      }
+
+      if (!data.success) {
+        throw new Error(data.message || 'Unable to create checkout session');
+      }
+
+      if (!data.sessionUrl) {
+        throw new Error('Invalid checkout session');
+      }
+
+      // Redirect to Stripe Checkout
+      window.location.href = data.sessionUrl;
+
+    } catch (error) {
+      console.error('Payment Error:', error);
+      
+      let errorMessage = 'Payment processing failed. Please try again.';
+      
+      if (error instanceof TypeError) {
+        errorMessage = 'Network error. Please check your connection and try again.';
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+
+      // Special error handling for common issues
+      if (errorMessage.toLowerCase().includes('insufficient')) {
+        errorMessage = 'Insufficient funds. Please use a different payment method.';
+      } else if (errorMessage.toLowerCase().includes('declined')) {
+        errorMessage = 'Your card was declined. Please use a different card or contact your bank.';
+      } else if (errorMessage.toLowerCase().includes('expired')) {
+        errorMessage = 'Your card has expired. Please use a different card.';
+      }
+
+      setPaymentMessage(errorMessage, true);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        document.getElementById('paymentSubmitText').textContent = 'Pay Now';
+      }
+    }
+  });
+}
+
+const setPaymentMessage = (message, isError = false) => {
+  if (!paymentMessage) return;
+  paymentMessage.textContent = message;
+  paymentMessage.style.color = isError ? '#ffc7c7' : '#d7ffdf';
+};
+
+// Handle "Get Started" buttons
+const handleGetStarted = () => {
+  const getStartedBtns = document.querySelectorAll('.package-btn');
+  
+  getStartedBtns.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      
+      const card = btn.closest('.package-card');
+      if (!card) return;
+
+      const packageName = card.querySelector('.package-header h3').textContent;
+      const priceText = card.querySelector('.price').textContent;
+      const packageAmount = Math.round(parseFloat(priceText.replace('$', '')) * 100);
+      const activeTab = document.querySelector('.package-tab-btn.is-active');
+      const packageType = activeTab ? activeTab.getAttribute('data-tab').replace('-', ' ') : 'unknown';
+
+      // Check if it's a contact sales button
+      if (btn.textContent.includes('Contact Sales')) {
+        document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      openPaymentModal(packageName, packageAmount, packageType);
+    });
+  });
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', handleGetStarted);
+} else {
+  handleGetStarted();
 }
 

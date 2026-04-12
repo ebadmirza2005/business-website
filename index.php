@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
     <link rel="shortcut icon" href="assets/brain.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -28,6 +29,7 @@
         <nav class="nav-menu" id="primaryNav" aria-label="Primary navigation">
             <a href="#home">Home</a>
             <a href="#service">Services</a>
+            <a href="#packages">Packages</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
@@ -352,6 +354,152 @@
                 </div>
         </section>
 
+        <section class="section-packages" id="packages">
+            <div class="packages-container">
+                <h2><span>Our</span> <span>Pricing</span> <span>Packages</span></h2>
+                <p class="packages-intro">Choose the perfect plan for your business needs</p>
+                
+                <!-- Package Tabs -->
+                <div class="packages-tabs">
+                    <button class="package-tab-btn is-active" data-tab="web-dev">🌐 Web Development</button>
+                    <button class="package-tab-btn" data-tab="app-dev">📱 App Development</button>
+                </div>
+
+                <!-- Web Development Packages -->
+                <div class="packages-grid-wrapper is-active" id="web-dev">
+                    <div class="packages-grid">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3>Starter</h3>
+                                <p class="package-subtitle">Web Development</p>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$100</span>
+                                <span class="period">$</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class='bx bxs-check-circle'></i> Basic Website 3-5 Pages</li>
+                                <li><i class='bx bxs-check-circle'></i> Responsive Design</li>
+                                <li><i class='bx bxs-check-circle'></i> Basic SEO Setup</li>
+                                <li><i class='bx bxs-check-circle'></i> Contact Form Integration</li>
+                                <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
+                            </ul>
+                            <button class="btn btn-ghost package-btn">Get Started</button>
+                        </div>
+
+                        <div class="package-card featured">
+                            <div class="package-badge">Most Popular</div>
+                            <div class="package-header">
+                                <h3>Professional</h3>
+                                <p class="package-subtitle">Web Development</p>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$300</span>
+                                <span class="period">$</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class='bx bxs-check-circle'></i> Advanced Website 5-8 Pages</li>
+                                <li><i class='bx bxs-check-circle'></i> Custom Design & Graphics</li>
+                                <li><i class='bx bxs-check-circle'></i> Advanced SEO Optimization</li>
+                                <li><i class='bx bxs-check-circle'></i> Payment Gateway Integration</li>
+                                <li><i class='bx bxs-check-circle'></i> Blog System Setup</li>
+                                <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
+                            </ul>
+                            <button class="btn btn-primary package-btn">Get Started</button>
+                        </div>
+
+                        <div class="package-card featured">
+                            <div class="package-badge">Pro</div>
+                            <div class="package-header">
+                                <h3>Business</h3>
+                                <p class="package-subtitle">Web Development</p>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$500</span>
+                                <span class="period">$</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class='bx bxs-check-circle'></i> Unlimited Pages Website</li>
+                                <li><i class='bx bxs-check-circle'></i> Custom Web</li>
+                                <li><i class='bx bxs-check-circle'></i> Advanced SEO & Marketing</li>
+                                <li><i class='bx bxs-check-circle'></i> E-Commerce Integration</li>
+                                <li><i class='bx bxs-check-circle'></i> Advanced Analytics</li>
+                                <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
+                            </ul>
+                            <button class="btn btn-primary package-btn">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Development Packages -->
+                <div class="packages-grid-wrapper" id="app-dev">
+                    <div class="packages-grid">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3>Starter</h3>
+                                <p class="package-subtitle">App Development</p>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$50</span>
+                                <span class="period">$</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class='bx bxs-check-circle'></i> Single Platform (iOS or Android)</li>
+                                <li><i class='bx bxs-check-circle'></i> 3 Core Features</li>
+                                <li><i class='bx bxs-check-circle'></i> Basic UI/UX Design</li>
+                                <li><i class='bx bxs-check-circle'></i> API Integration</li>
+                            </ul>
+                            <button class="btn btn-ghost package-btn">Get Started</button>
+                        </div>
+
+                        <div class="package-card featured">
+                            <div class="package-badge">Most Popular</div>
+                            <div class="package-header">
+                                <h3>Professional</h3>
+                                <p class="package-subtitle">App Development</p>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$150</span>
+                                <span class="period">$</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class='bx bxs-check-circle'></i> Cross-Platform (iOS + Android)</li>
+                                <li><i class='bx bxs-check-circle'></i> 5 Advanced Features</li>
+                                <li><i class='bx bxs-check-circle'></i> Custom UI/UX Design</li>
+                                <li><i class='bx bxs-check-circle'></i> Backend Development</li>
+                                <li><i class='bx bxs-check-circle'></i> Push Notifications</li>
+                            </ul>
+                            <button class="btn btn-primary package-btn">Get Started</button>
+                        </div>
+
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3>Business</h3>
+                                <p class="package-subtitle">App Development</p>
+                            </div>
+                            <div class="package-price">
+                                <span class="price">$300</span>
+                                <span class="period">$</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class='bx bxs-check-circle'></i> Native iOS + Android Apps</li>
+                                <li><i class='bx bxs-check-circle'></i> Unlimited Advanced Features</li>
+                                <li><i class='bx bxs-check-circle'></i> Premium UI/UX Experience</li>
+                                <li><i class='bx bxs-check-circle'></i> Cloud Backend Infrastructure</li>
+                                <li><i class='bx bxs-check-circle'></i> Real-time Analytics & Reports</li>
+                                <li><i class='bx bxs-check-circle'></i> 6 Months Support</li>
+                            </ul>
+                            <button class="btn btn-ghost package-btn">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packages-cta">
+                    <p>Need a custom package? <a href="#contact" class="link">Contact our team</a></p>
+                </div>
+            </div>
+        </section>
+
         <section class="section-about" id="about">
             <div class="about-card">
                 <p class="about-eyebrow">About Us</p>
@@ -424,9 +572,9 @@
                     <h2>Quick Links</h2>
                     <a href="#home">Home</a>
                     <a href="#service">Services</a>
+                    <a href="#packages">Packages</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
-                    <a href="portfolio/index.html" target="_blank" rel="noopener">Portfolio</a>
                 </div>
                 <div class="contact-links">
                     <h2>Contact</h2>
@@ -498,6 +646,46 @@
 
             <p class="auth-message" id="authMessage" aria-live="polite"></p>
         </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal" aria-hidden="true" role="dialog" aria-labelledby="paymentModalTitle">
+        <div class="payment-panel" role="document">
+            <button type="button" class="payment-close" id="closePayment" aria-label="Close payment">✕</button>
+            <h2 id="paymentModalTitle">Complete Your Purchase</h2>
+            
+            <div class="payment-summary">
+                <div class="summary-item">
+                    <span>Package:</span>
+                    <strong id="paymentPackage">-</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Type:</span>
+                    <strong id="paymentType">-</strong>
+                </div>
+                <div class="summary-item total">
+                    <span>Amount:</span>
+                    <strong id="paymentAmount">$0.00</strong>
+                </div>
+            </div>
+
+            <form id="paymentForm" class="payment-form" novalidate>
+                <label>
+                    Email Address
+                    <input type="email" id="paymentEmail" placeholder="you@example.com" required>
+                </label>
+                
+                <div id="card-element" style="border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 12px; padding: 1rem; background: rgba(1, 13, 22, 0.5); margin-bottom: 1rem;"></div>
+                <div id="card-errors" style="color: #ffc7c7; margin-bottom: 1rem; font-size: 0.9rem;"></div>
+
+                <button type="submit" class="btn btn-primary" id="paymentSubmit" style="width: 100%;">
+                    <span id="paymentSubmitText">Pay Now</span>
+                </button>
+            </form>
+
+            <p class="payment-message" id="paymentMessage" aria-live="polite"></p>
+        </div>
+    </div>
     </div>
 
     <script src="script.js"></script>
