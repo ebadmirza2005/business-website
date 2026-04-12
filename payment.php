@@ -1,129 +1,119 @@
 <?php
-// START: Ensure clean JSON output
-ini_set('display_errors', '0');
-error_reporting(E_ALL);
+// Payment Processing Handler
 header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-cache, no-store, must-revalidate');
 
-// Create response function
-function sendJSON($data, $statusCode = 200) {
-    http_response_code($statusCode);
-    echo json_encode($data);
-    exit;
-}
+$response = [
+    'success' => false,
+    'debug' => [],
+    'message' => 'Payment processing failed'
+];
 
 try {
-    // Load environment
-    if (!file_exists('config-env.php')) {
-        sendJSON(['success' => false, 'message' => 'Config file not found'], 500);
-    }
+    // Step 1: Load environment
+    $response['debug']['step1'] = 'Loading environment...';
     require_once 'config-env.php';
+    $response['debug']['step1'] = 'Environment loaded OK';
     
-    // Get raw input
+    // Step 2: Get input
+    $response['debug']['step2'] = 'Reading input...';
     $rawInput = file_get_contents('php://input');
-    if (empty($rawInput)) {
-        sendJSON(['success' => false, 'message' => 'Empty request body'], 400);
-    }
-    
     $input = json_decode($rawInput, true);
-    if (!is_array($input)) {
-        sendJSON(['success' => false, 'message' => 'Invalid JSON: ' . $rawInput], 400);
-    }
-
-    // Validate required fields
-    $packageName = $input['packageName'] ?? null;
-    $amount = $input['amount'] ?? null;
-    $email = $input['email'] ?? null;
-    $packageType = $input['packageType'] ?? 'unknown';
-
-    if (!$packageName || !$amount || !$email) {
-        sendJSON(['success' => false, 'message' => 'Missing fields: packageName=' . ($packageName ? 'OK' : 'MISSING') . ', amount=' . ($amount ? $amount : 'MISSING') . ', email=' . ($email ? 'OK' : 'MISSING')], 400);
-    }
-
-    $packageName = htmlspecialchars($packageName);
-    $amount = intval($amount);
-    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-    $packageType = htmlspecialchars($packageType);
-
-    if (!$email) {
-        sendJSON(['success' => false, 'message' => 'Invalid email'], 400);
-    }
-
-    if ($amount <= 0 || $amount > 999999) {
-        sendJSON(['success' => false, 'message' => 'Invalid amount: ' . $amount], 400);
-    }
-
-    // Load Stripe
-    if (!file_exists('vendor/autoload.php')) {
-        sendJSON(['success' => false, 'message' => 'Stripe library not found'], 500);
-    }
-    require_once 'vendor/autoload.php';
     
-    // Setup Stripe
+    if (!$input) {
+        throw new Exception('No valid JSON input received');
+    }
+    $response['debug']['step2'] = 'Input parsed OK: packageName=' . ($input['packageName'] ?? 'MISSING');
+    
+    // Step 3: Validate fields
+    $response['debug']['step3'] = 'Validating...';
+    if (empty($input['packageName']) || empty($input['amount']) || empty($input['email'])) {
+        throw new Exception('Missing required fields');
+    }
+    $response['debug']['step3'] = 'Validation OK';
+    
+    // Step 4: Load Stripe
+    $response['debug']['step4'] = 'Loading Stripe...';
+    require_once 'vendor/autoload.php';
     $stripe_key = env('STRIPE_SECRET_KEY');
     if (!$stripe_key) {
-        sendJSON(['success' => false, 'message' => 'Stripe key not configured'], 500);
+        throw new Exception('Stripe key not found in environment');
     }
     \Stripe\Stripe::setApiKey($stripe_key);
-
-    // Database connection
+    $response['debug']['step4'] = 'Stripe loaded OK';
+    
+    // Step 5: Parse data
+    $response['debug']['step5'] = 'Parsing data...';
+    $packageName = htmlspecialchars($input['packageName']);
+    $amount = intval($input['amount']);
+    $email = filter_var($input['email'], FILTER_VALIDATE_EMAIL);
+    $packageType = htmlspecialchars($input['packageType'] ?? 'unknown');
+    
+    if (!$email) {
+        throw new Exception('Invalid email: ' . $input['email']);
+    }
+    $response['debug']['step5'] = "Data: name=$packageName, amount=$amount, email=$email";
+    
+    // Step 6: Create Stripe session
+    $response['debug']['step6'] = 'Creating Stripe session...';
+    $session = \Stripe\Checkout\Session::create([
+        'payment_method_types' => ['card'],
+        'line_items' => [[
+            'price_data' => [
+                'currency' => 'usd',
+                'product_data' => ['name' => $packageName],
+                'unit_amount' => $amount,
+            ],
+            'quantity' => 1,
+        ]],
+        'mode' => 'payment',
+        'success_url' => 'http://localhost/payment-success.html?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => 'http://localhost/index.php#packages',
+        'customer_email' => $email,
+    ]);
+    $response['debug']['step6'] = 'Stripe session created: ' . $session->id;
+    
+    // Step 7: Save to database
+    $response['debug']['step7'] = 'Saving to database...';
     $conn = new mysqli(
         env('DB_HOST', 'localhost'),
         env('DB_USER', 'root'),
         env('DB_PASS', ''),
         env('DB_NAME', 'business_website')
     );
-
+    
     if ($conn->connect_error) {
-        sendJSON(['success' => false, 'message' => 'Database connection failed: ' . $conn->connect_error], 500);
+        throw new Exception('DB connection error: ' . $conn->connect_error);
     }
-
-    // Create Stripe session
-    $stripeSession = \Stripe\Checkout\Session::create([
-        'payment_method_types' => ['card'],
-        'line_items' => [
-            [
-                'price_data' => [
-                    'currency' => 'usd',
-                    'product_data' => [
-                        'name' => $packageName,
-                        'description' => ucfirst(str_replace('-', ' ', $packageType)) . ' Package',
-                    ],
-                    'unit_amount' => $amount,
-                ],
-                'quantity' => 1,
-            ]
-        ],
-        'mode' => 'payment',
-        'success_url' => (getenv('APP_URL') ?? 'http://localhost') . '/payment-success.html?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => (getenv('APP_URL') ?? 'http://localhost') . '/index.php#packages',
-        'customer_email' => $email,
-    ]);
-
-    // Save order to database
+    
     $stmt = $conn->prepare("INSERT INTO orders (email, package_name, package_type, amount, session_id, status) VALUES (?, ?, ?, ?, ?, 'pending')");
     if (!$stmt) {
-        sendJSON(['success' => false, 'message' => 'Database error: ' . $conn->error], 500);
+        throw new Exception('DB prepare error: ' . $conn->error);
     }
-
-    $stmt->bind_param('sssds', $email, $packageName, $packageType, $amount, $stripeSession->id);
+    
+    $stmt->bind_param('sssds', $email, $packageName, $packageType, $amount, $session->id);
     if (!$stmt->execute()) {
-        sendJSON(['success' => false, 'message' => 'Failed to save order: ' . $stmt->error], 500);
+        throw new Exception('DB execute error: ' . $stmt->error);
     }
-
+    
     $stmt->close();
     $conn->close();
-
-    // Success response
-    sendJSON([
-        'success' => true,
-        'sessionId' => $stripeSession->id,
-        'sessionUrl' => $stripeSession->url,
-        'message' => 'Checkout session created'
-    ]);
-
+    $response['debug']['step7'] = 'Database saved OK';
+    
+    // Success!
+    $response['success'] = true;
+    $response['message'] = 'Payment session created successfully';
+    $response['sessionUrl'] = $session->url;
+    $response['sessionId'] = $session->id;
+    
 } catch (\Stripe\Exception\ApiErrorException $e) {
-    sendJSON(['success' => false, 'message' => 'Stripe Error: ' . $e->getMessage()], 400);
+    $response['message'] = 'Stripe error: ' . $e->getMessage();
+    $response['stripeError'] = true;
 } catch (Exception $e) {
-    sendJSON(['success' => false, 'message' => 'Error: ' . $e->getMessage()], 400);
+    $response['message'] = $e->getMessage();
+    $response['error'] = true;
 }
+
+// Always send JSON response  
+http_response_code($response['success'] ? 200 : 400);
+echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+?>
