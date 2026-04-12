@@ -772,3 +772,24 @@ if (document.readyState === 'loading') {
   handleGetStarted();
 }
 
+// Test Payment Button (500 Rs)
+const testPaymentBtn = document.getElementById('testPaymentBtn');
+const testPaymentSection = document.getElementById('testPaymentSection');
+
+// Show test payment button only in development/localhost
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+  if (testPaymentSection) {
+    testPaymentSection.style.display = 'block';
+  }
+}
+
+if (testPaymentBtn) {
+  testPaymentBtn.addEventListener('click', () => {
+    // 500 in smallest currency unit (500 rupees or 500 cents depending on currency)
+    // For INR it would be 500 paise = 5 rupees, so we'll use 50000 paise = 500 rupees
+    const testAmount = 50000; // 500 rupees in smallest unit
+    openPaymentModal('Test Payment 500 Rs', testAmount, 'test');
+  });
+}
+
+

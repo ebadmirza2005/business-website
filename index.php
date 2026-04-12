@@ -648,6 +648,12 @@
         </div>
     </div>
 
+    <!-- Test Payment Section -->
+    <div id="testPaymentSection" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 999; background: rgba(1, 13, 22, 0.95); padding: 1rem; border: 2px solid #00d9ff; border-radius: 12px;">
+        <p style="margin: 0 0 0.5rem 0; color: #d7ffdf; font-size: 0.9rem;">💧 Test Payment (500)</p>
+        <button id="testPaymentBtn" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Test Payment 500</button>
+    </div>
+
     <!-- Payment Modal -->
     <div class="payment-modal" id="paymentModal" aria-hidden="true" role="dialog" aria-labelledby="paymentModalTitle">
         <div class="payment-panel" role="document">
