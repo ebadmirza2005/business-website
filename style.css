@@ -437,9 +437,11 @@ main section {
     transform: translateX(120%);
 }
 
-.lines {
+
+
+/* .lines {
     display: none;
-}
+} */
 
 .imgBx {
     font-size: 1.8rem;

@@ -24,7 +24,19 @@ register_shutdown_function(static function (): void {
 
 header("Content-Type: application/json");
 
-require __DIR__ . "/vendor/autoload.php";
+$autoloadPath = __DIR__ . '/vendor/autoload.php';
+if (!is_file($autoloadPath)) {
+    if (ob_get_length()) {
+        ob_clean();
+    }
+    echo json_encode([
+        'success' => false,
+        'message' => 'Mailer dependencies are missing. Run composer install on the server.'
+    ]);
+    exit;
+}
+
+require $autoloadPath;
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -37,6 +49,22 @@ function sendJson(array $payload): void
 
     echo json_encode($payload);
     exit;
+}
+
+function pickConfig(array $config, string $key, string $envKey = '', string $default = ''): string
+{
+    if (isset($config[$key]) && (string) $config[$key] !== '') {
+        return (string) $config[$key];
+    }
+
+    if ($envKey !== '') {
+        $envValue = getenv($envKey);
+        if ($envValue !== false && $envValue !== '') {
+            return (string) $envValue;
+        }
+    }
+
+    return $default;
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -81,13 +109,14 @@ if (is_file($smtpConfigPath)) {
     }
 }
 
-$smtpHost = (string) ($smtpConfig["host"] ?? getenv("SMTP_HOST") ?: "smtp.gmail.com");
-$smtpPort = (int) ($smtpConfig["port"] ?? getenv("SMTP_PORT") ?: 587);
-$smtpUser = (string) ($smtpConfig["username"] ?? getenv("SMTP_USER") ?: "");
-$smtpPass = (string) ($smtpConfig["password"] ?? getenv("SMTP_PASS") ?: "");
-$smtpFrom = (string) ($smtpConfig["from_email"] ?? getenv("SMTP_FROM") ?: $smtpUser);
-$smtpTo = (string) ($smtpConfig["recipient_email"] ?? getenv("SMTP_TO") ?: $smtpFrom);
-$smtpFromName = (string) ($smtpConfig["from_name"] ?? getenv("SMTP_FROM_NAME") ?: "Faaz Pro Tech");
+$smtpHost = pickConfig($smtpConfig, 'host', 'SMTP_HOST', 'smtp.gmail.com');
+$smtpPortRaw = pickConfig($smtpConfig, 'port', 'SMTP_PORT', '587');
+$smtpPort = (int) $smtpPortRaw;
+$smtpUser = pickConfig($smtpConfig, 'username', 'SMTP_USER', '');
+$smtpPass = pickConfig($smtpConfig, 'password', 'SMTP_PASS', '');
+$smtpFrom = pickConfig($smtpConfig, 'from_email', 'SMTP_FROM', $smtpUser);
+$smtpTo = pickConfig($smtpConfig, 'recipient_email', 'SMTP_TO', $smtpFrom);
+$smtpFromName = pickConfig($smtpConfig, 'from_name', 'SMTP_FROM_NAME', 'Faaz Pro Tech');
 $smtpEncryption = strtolower((string) ($smtpConfig["encryption"] ?? "tls"));
 $smtpDebug = filter_var($smtpConfig["debug"] ?? getenv("SMTP_DEBUG") ?? false, FILTER_VALIDATE_BOOL);
 $smtpDebugLog = [];
@@ -148,7 +177,7 @@ try {
     $mailer->isHTML(false);
 
     $mailer->send();
-} catch (Exception $e) {
+} catch (Throwable $e) {
     $errorText = $e->getMessage();
     $hint = "";
 

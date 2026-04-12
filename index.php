@@ -87,7 +87,7 @@
                 <div class="card">
                     <!-- <div class="lines"></div> -->
                     <div class="imgBx">
-                        <!-- <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async"> -->
+                        <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async">
                     </div>
                     <div class="content">
                         <div class="details">
@@ -99,7 +99,7 @@
                     <div class="card">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async"> -->
+                            <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -113,7 +113,7 @@
                     <div class="card">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async"> -->
+                            <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -127,7 +127,7 @@
                     <div class="card">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async"> -->
+                            <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -140,7 +140,7 @@
                     <div class="card">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async"> -->
+                            <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -153,7 +153,7 @@
                      <div class="card">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async"> -->
+                            <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -166,7 +166,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async"> -->
+                            <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -179,7 +179,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async"> -->
+                            <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -192,7 +192,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async"> -->
+                            <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -205,7 +205,7 @@
                      <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async"> -->
+                            <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -219,7 +219,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async"> -->
+                            <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -232,7 +232,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div>` -->
                         <div class="imgBx">
-                            <!-- <img src="assets/high-volume-data-entry.png" alt="High volume data entry service" loading="lazy" decoding="async"> --> 
+                            <img src="assets/high-volume-data-entry.png" alt="High volume data entry service" loading="lazy" decoding="async"> 
                         </div>
                         <div class="content">
                             <div class="details">
@@ -246,7 +246,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async"> -->
+                            <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -259,7 +259,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async"> -->
+                            <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -272,7 +272,7 @@
                     <div class="card hidden">
                         <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <!-- <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async"> -->
+                            <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
