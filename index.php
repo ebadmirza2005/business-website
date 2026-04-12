@@ -374,7 +374,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$100</span>
+                                <span class="price">$500</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -394,7 +394,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$300</span>
+                                <span class="price">$500</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -440,7 +440,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <span class="price">$500</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -459,7 +459,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$150</span>
+                                <span class="price">$500</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -478,7 +478,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$300</span>
+                                <span class="price">$500</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
