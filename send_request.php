@@ -38,8 +38,36 @@ if (!is_file($autoloadPath)) {
 
 require $autoloadPath;
 
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
+if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
+    $phpMailerSrc = __DIR__ . '/vendor/phpmailer/phpmailer/src';
+    $requiredFiles = [
+        $phpMailerSrc . '/Exception.php',
+        $phpMailerSrc . '/PHPMailer.php',
+        $phpMailerSrc . '/SMTP.php',
+    ];
+
+    foreach ($requiredFiles as $file) {
+        if (!is_file($file)) {
+            if (ob_get_length()) {
+                ob_clean();
+            }
+            echo json_encode([
+                'success' => false,
+                'message' => 'PHPMailer library files are missing on server. Re-upload vendor folder or run composer install.'
+            ]);
+            exit;
+        }
+
+        require_once $file;
+    }
+}
+
+if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
+    sendJson([
+        'success' => false,
+        'message' => 'PHPMailer could not be loaded. Run composer dump-autoload or re-install dependencies.'
+    ]);
+}
 
 function sendJson(array $payload): void
 {
@@ -140,7 +168,7 @@ $body = "You have received a new contact request from your website.\n\n"
     . "Message:\n{$message}\n";
 
 try {
-    $mailer = new PHPMailer(true);
+    $mailer = new \PHPMailer\PHPMailer\PHPMailer(true);
     $mailer->isSMTP();
     $mailer->Host = $smtpHost;
     $mailer->SMTPAuth = true;
@@ -148,8 +176,8 @@ try {
     $mailer->Password = $smtpPass;
     $mailer->Hostname = parse_url('https://' . preg_replace('/^mailto:/', '', $smtpFrom), PHP_URL_HOST) ?: 'faazprotech.com';
     $mailer->SMTPSecure = $smtpEncryption === "ssl"
-        ? PHPMailer::ENCRYPTION_SMTPS
-        : PHPMailer::ENCRYPTION_STARTTLS;
+        ? \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
+        : \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
     $mailer->Port = $smtpPort;
     $mailer->CharSet = "UTF-8";
     if ($smtpDebug) {
