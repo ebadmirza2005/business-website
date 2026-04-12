@@ -142,7 +142,11 @@ const postForm = async (url, payload) => {
   }
 
   if (!response.ok || !data.success) {
-    throw new Error(data.message || "Request failed");
+    const messageParts = [data.message || "Request failed"];
+    if (data.error) {
+      messageParts.push(String(data.error));
+    }
+    throw new Error(messageParts.join(": "));
   }
 
   return data;

@@ -41,10 +41,20 @@ function failDbConnection(string $message, bool $isLocal): void
     die($isLocal ? ('ERROR: ' . $message) : 'Database connection failed. Please contact support.');
 }
 
-$serverName = $_SERVER['SERVER_NAME'] ?? '';
-$httpHost = $_SERVER['HTTP_HOST'] ?? '';
-$isLocal = in_array($serverName, ['localhost', '127.0.0.1'], true)
-    || in_array($httpHost, ['localhost', '127.0.0.1'], true);
+$serverName = strtolower((string) ($_SERVER['SERVER_NAME'] ?? ''));
+$httpHost = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+$hostOnly = explode(':', $httpHost)[0];
+$remoteAddr = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+$isLocalDomain = static function (string $value): bool {
+    return $value !== '' && preg_match('/\\.local$/', $value) === 1;
+};
+
+$localHosts = ['localhost', '127.0.0.1', '::1'];
+$isLocal = in_array($serverName, $localHosts, true)
+    || in_array($hostOnly, $localHosts, true)
+    || in_array($remoteAddr, $localHosts, true)
+    || $isLocalDomain($serverName)
+    || $isLocalDomain($hostOnly);
 
 $envFilePath = __DIR__ . '/.env';
 $envFileData = file_exists($envFilePath) ? (parse_ini_file($envFilePath, false, INI_SCANNER_RAW) ?: []) : [];
