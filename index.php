@@ -367,7 +367,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <span class="price">$100</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -387,7 +387,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <span class="price">$300</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -408,7 +408,7 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <span class="price">$500</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -452,7 +452,7 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <span class="price">$150</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -465,13 +465,14 @@
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
 
-                        <div class="package-card">
+                        <div class="package-card featured">
+                            <div class="package-badge">Pro</div>
                             <div class="package-header">
                                 <h3>Business</h3>
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <span class="price">$300</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -482,7 +483,7 @@
                                 <li><i class='bx bxs-check-circle'></i> Real-time Analytics & Reports</li>
                                 <li><i class='bx bxs-check-circle'></i> 6 Months Support</li>
                             </ul>
-                            <button class="btn btn-ghost package-btn">Contact Sales</button>
+                            <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
                     </div>
                 </div>
