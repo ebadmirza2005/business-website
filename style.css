@@ -3,6 +3,7 @@
 :root {
     --bg-main: #061826;
     --bg-secondary: #0c2231;
+    --bg-gradient: linear-gradient(135deg, #03101b 0%, #072033 42%, #041723 100%);
     --surface: rgba(255, 255, 255, 0.08);
     --surface-strong: rgba(255, 255, 255, 0.12);
     --line: rgba(255, 255, 255, 0.16);
@@ -32,15 +33,19 @@
 
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    background: var(--bg-gradient);
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
+    min-height: 100vh;
     font-family: "Manrope", sans-serif;
     color: var(--text-main);
     background:
         radial-gradient(circle at 18% 15%, rgba(33, 198, 255, 0.2), transparent 38%),
         radial-gradient(circle at 82% 5%, rgba(255, 159, 67, 0.2), transparent 34%),
-        linear-gradient(135deg, #03101b 0%, #072033 42%, #041723 100%);
+        var(--bg-gradient);
     overflow-x: hidden;
 }
 
@@ -1356,12 +1361,16 @@ body.is-loading {
 
 @media (max-width: 880px) {
     header {
-        padding: 0.32rem 0.68rem;
+        height: auto;
+        top: 10px;
+        width: min(1120px, calc(100% - 20px));
+        padding: 0.52rem 0.7rem;
     }
 
-    .logo {
-        width: clamp(98px, 24vw, 126px);
-        max-height: 44px;
+    header .logo {
+        width: clamp(116px, 34vw, 152px);
+        max-height: 54px;
+        margin-top: 0;
     }
 
     .menu-toggle {
@@ -1375,9 +1384,12 @@ body.is-loading {
 
     .nav-menu {
         position: absolute;
-        right: 1rem;
+        left: 0.6rem;
+        right: 0.6rem;
         top: calc(100% + 0.6rem);
-        width: min(280px, calc(100vw - 2rem));
+        width: auto;
+        max-height: min(74vh, 420px);
+        overflow-y: auto;
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.16);
         background: rgba(4, 20, 31, 0.96);
@@ -1405,10 +1417,30 @@ body.is-loading {
 
     .section-home {
         text-align: center;
-        padding-top: 6rem;
+        min-height: auto;
+        padding-top: 6.5rem;
+        padding-bottom: 2.2rem;
+        gap: 1.1rem;
+    }
+
+    .profile img {
+        width: min(290px, 78vw);
+        height: auto;
+    }
+
+    .profile h2 {
+        position: static;
+        top: auto;
+        margin-top: -0.15rem;
+    }
+
+    .profile p {
+        position: static;
+        bottom: auto;
     }
 
     .detail-section {
+        margin-top: 0;
         text-align: left;
     }
 
@@ -1426,6 +1458,18 @@ body.is-loading {
         grid-template-columns: 1fr;
     }
 
+    header {
+        top: 8px;
+    }
+
+    header.is-scrolled {
+        top: 0;
+    }
+
+    main section {
+        width: min(100%, calc(100% - 1.1rem));
+    }
+
     .contact-box,
     .auth-panel,
     .detail-section,
@@ -1435,6 +1479,36 @@ body.is-loading {
 
     .profile h2 {
         font-size: 1.68rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .package-card {
+        min-height: auto;
+        padding: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-intro {
+        font-size: 0.98rem;
+    }
+
+    .package-tab-btn {
+        font-size: 0.92rem;
+        padding: 0.64rem 0.85rem;
+    }
+
+    .package-features li {
+        font-size: 0.9rem;
     }
 }
 
