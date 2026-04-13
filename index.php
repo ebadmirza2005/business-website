@@ -16,7 +16,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="My Awesome Website">
-    <meta property="og:description" content="Learn web development with easy tutorials for beginners.">
+    <meta property="og:description" content="Welcome to my website">
     <meta property="og:url" content="https://faazprotech.com">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://faazprotech.com/image.jpg">
