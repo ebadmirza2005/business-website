@@ -423,6 +423,11 @@ main section {
     box-shadow: 0 16px 34px rgba(3, 20, 30, 0.4);
 }
 
+.card:hover .imgBx img {
+    transform: scale(1.12);
+    transition: 0.3s ease-in-out;
+}
+
 .card::before {
     content: "";
     position: absolute;
@@ -454,9 +459,12 @@ main section {
     padding: 20px;
     width: 100%;
     height: 100%;
-
-    object-fit: contain;
 }
+
+.imgBx label {
+    font-size: 50px;
+}
+
 
 .details h3 {
     font-family: "Urbanist", sans-serif;
@@ -482,7 +490,8 @@ main section {
 }
 
 #seeMoreBtn {
-    margin-top: 1.2rem;
+    display: block;
+    margin: 1.2rem auto 0;
     border: 1px solid rgba(255, 159, 67, 0.7);
     background: rgba(255, 159, 67, 0.16);
     color: #ffdabb;
@@ -557,6 +566,7 @@ main section {
 
 .stats-grid article {
     border-radius: 14px;
+    margin-bottom: 30px;
     padding: 0.88rem;
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -634,6 +644,7 @@ main section {
 }
 
 input,
+select,
 textarea {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.22);
@@ -646,9 +657,44 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
     border-color: rgba(33, 198, 255, 0.8);
     box-shadow: 0 0 0 3px rgba(33, 198, 255, 0.18);
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2.8rem;
+    cursor: pointer;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8fdcff 50%),
+        linear-gradient(135deg, #8fdcff 50%, transparent 50%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+    background-position:
+        calc(100% - 1.15rem) calc(50% + 1px),
+        calc(100% - 0.8rem) calc(50% + 1px),
+        calc(100% - 2.25rem) 50%;
+    background-size: 6px 6px, 6px 6px, 1px 60%;
+    background-repeat: no-repeat;
+}
+
+select:hover {
+    border-color: rgba(33, 198, 255, 0.55);
+}
+
+select:focus {
+    background-image:
+        linear-gradient(45deg, transparent 50%, #c9f1ff 50%),
+        linear-gradient(135deg, #c9f1ff 50%, transparent 50%),
+        linear-gradient(to right, rgba(33, 198, 255, 0.45), rgba(33, 198, 255, 0.08));
+}
+
+select option {
+    background: #0a1f2d;
+    color: #e8f6ff;
 }
 
 textarea {
@@ -840,7 +886,7 @@ button[disabled] {
 
 .period {
     color: var(--text-soft);
-    font-size: 0.88rem;
+    font-size: 1.5rem;
 }
 
 .package-features {

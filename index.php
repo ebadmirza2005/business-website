@@ -80,7 +80,6 @@
             <h2 id="service"><span>Our</span> <span>BPO</span> <span>Services</span></h2>
             <div class="service-card">
                 <div class="card">
-                    <!-- <div class="lines"></div> -->
                     <div class="imgBx">
                         <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async">
                     </div>
@@ -92,7 +91,6 @@
                     </div>
                 </div>
                     <div class="card">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async">
                         </div>
@@ -106,7 +104,6 @@
                     </div>
 
                     <div class="card">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async">
                         </div>
@@ -120,7 +117,6 @@
                     </div>
 
                     <div class="card">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async">
                         </div>
@@ -133,9 +129,8 @@
                     </div>
 
                     <div class="card">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
-                            <img src="assets/data-entry.jpg" alt="Advanced data entry service" loading="lazy" decoding="async">
+                            <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
                         </div>
                         <div class="content">
                             <div class="details">
@@ -146,7 +141,6 @@
                     </div>
 
                      <div class="card">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async">
                         </div>
@@ -159,7 +153,6 @@
                     </div>
 
                     <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async">
                         </div>
@@ -172,7 +165,6 @@
                     </div>
 
                     <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async">
                         </div>
@@ -185,7 +177,6 @@
                     </div>
 
                     <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async">
                         </div>
@@ -198,7 +189,6 @@
                     </div>
 
                      <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async">
                         </div>
@@ -212,7 +202,6 @@
 
                     
                     <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async">
                         </div>
@@ -223,23 +212,7 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="card hidden">
-                        <!-- <div class="lines"></div>` -->
-                        <div class="imgBx">
-                            <img src="assets/high-volume-data-entry.png" alt="High volume data entry service" loading="lazy" decoding="async"> 
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>High Volume Data Entry</h3>
-                                <p>Accurately input large amounts of data efficiently while maintaining quality and consistency.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
                         <div class="imgBx">
                             <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async">
                         </div>
@@ -341,6 +314,30 @@
                             <div class="details">
                                 <h3>Marketing</h3>
                                 <p>Promoting products and services to reach the right audience and grow business.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/wordpress-img.png" alt="wordpress logo">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>Wordpress</h3>
+                                <p>Creating professional WordPress websites to help businesses establish a strong and effective online presence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="lines"></div>
+                        <div class="imgBx">
+                            <img src="assets/ui-ux.png" alt="Ui/Ux Image">
+                        </div>
+                        <div class="content">
+                            <div class="details">
+                                <h3>UI/UX Design</h3>
+                                <p>Creating intuitive and engaging user interfaces and experiences.</p>
                             </div>
                         </div>
                     </div>
@@ -517,7 +514,7 @@
                         <p>Support Availability</p>
                     </article>
                 </div>
-                <a href="#contact" class="btn btn-primary about-cta" style="margin-top: 20px;">Start Your Project</a>
+                <a href="#contact" class="btn btn-primary about-cta">Start Your Project</a>
             </div>
             <div class="about-card about-checklist">
                 <h3>How We Work</h3>
@@ -543,6 +540,31 @@
                     <label>
                         Email Address
                         <input type="email" name="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        Select Service
+                        <select name="service" required>
+                            <option value="" selected disabled>Choose a service</option>
+                            <option value="Data Collection">Data Collection</option>
+                            <option value="Prospect List Building">Prospect List Building</option>
+                            <option value="Data Research">Data Research</option>
+                            <option value="Cold Lead Generation">Cold Lead Generation</option>
+                            <option value="Data Entry (Advanced)">Data Entry (Advanced)</option>
+                            <option value="PDF to Excel">PDF to Excel</option>
+                            <option value="Cold Calling">Cold Calling</option>
+                            <option value="Data Scraping">Data Scraping</option>
+                            <option value="Data Visualization">Data Visualization</option>
+                            <option value="CRM Tools">CRM Tools</option>
+                            <option value="Data Extraction Tools">Data Extraction Tools</option>
+                            <option value="MS Excel (Advanced)">MS Excel (Advanced)</option>
+                            <option value="Google Workspace">Google Workspace</option>
+                            <option value="Tools and Technologies">Tools and Technologies</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="App Development">App Development</option>
+                            <option value="Logo Design">Logo Design</option>
+                            <option value="Graphic Design">Graphic Design</option>
+                            <option value="Marketing">Marketing</option>
+                        </select>
                     </label>
                     <label>
                         Project Details

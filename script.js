@@ -6,6 +6,7 @@ const year = document.getElementById("year");
 const contactForm = document.getElementById("contactForm");
 const contactMessage = document.getElementById("contactMessage");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let revealObserver;
 
 const getScrollTop = () =>
   window.scrollY ||
@@ -31,27 +32,33 @@ const setupScrollReveal = () => {
     return;
   }
 
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observerInstance.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+  }
+
   revealTargets.forEach((target, index) => {
-    target.classList.add("reveal-item");
-    target.style.setProperty("--reveal-delay", `${Math.min(index * 70, 350)}ms`);
+    if (!target.classList.contains("reveal-item")) {
+      target.classList.add("reveal-item");
+      target.style.setProperty("--reveal-delay", `${Math.min(index * 70, 350)}ms`);
+    }
+
+    if (!target.classList.contains("is-visible")) {
+      revealObserver.observe(target);
+    }
   });
-
-  const observer = new IntersectionObserver(
-    (entries, observerInstance) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observerInstance.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.14,
-      rootMargin: "0px 0px -8% 0px",
-    },
-  );
-
-  revealTargets.forEach((target) => observer.observe(target));
 };
 
 const postForm = async (url, payload) => {
@@ -131,9 +138,10 @@ if (contactForm) {
     const email = (contactForm.elements.namedItem("email")?.value || "")
       .trim()
       .toLowerCase();
+    const service = (contactForm.elements.namedItem("service")?.value || "").trim();
     const message = (contactForm.elements.namedItem("message")?.value || "").trim();
 
-    if (!name || !email || !message) {
+    if (!name || !email || !service || !message) {
       setContactMessage("Please fill in all fields before sending.", true);
       return;
     }
@@ -147,6 +155,7 @@ if (contactForm) {
       const result = await postForm("send_request.php", {
         name,
         email,
+        service,
         message,
       });
 
@@ -187,6 +196,7 @@ if (btn) {
 
       btn.innerText = "See Less";
       expanded = true;
+      setupScrollReveal();
     } else {
       cards.forEach((card, index) => {
         if (index >= 6) {
@@ -222,6 +232,7 @@ const initPackageTabs = () => {
       const targetWrapper = document.getElementById(targetTab);
       if (targetWrapper) {
         targetWrapper.classList.add("is-active");
+        setupScrollReveal();
       }
     });
   });

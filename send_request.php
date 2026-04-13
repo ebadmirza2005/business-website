@@ -85,9 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
 $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
+$service = isset($_POST["service"]) ? trim($_POST["service"]) : "";
 $message = isset($_POST["message"]) ? trim($_POST["message"]) : "";
 
-if ($name === "" || $email === "" || $message === "") {
+if ($name === "" || $email === "" || $service === "" || $message === "") {
     sendJson([
         "success" => false,
         "message" => "Please fill in all fields"
@@ -138,7 +139,8 @@ $subject = "New Contact Request - Faaz Pro Tech";
 
 $body = "You have received a new contact request from your website.\n\n"
     . "Name: {$name}\n"
-    . "Email: {$email}\n\n"
+    . "Email: {$email}\n"
+    . "Service: {$service}\n\n"
     . "Message:\n{$message}\n";
 
 if ($phpMailerAvailable) {
