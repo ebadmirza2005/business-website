@@ -7,7 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#041723">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="description" content="This is a sample website that explains how to add meta tags in HTML.">
+    <meta name="keywords" content="web development, HTML tutorial, CSS, JavaScript, beginner coding">
+    <meta name="author" content="Faaz Pro Tech">
+
+    <!-- 📱 Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🧠 Robots (indexing rules) -->
+    <meta name="robots" content="index, follow">
+
+    <!-- 🌐 Open Graph (for Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:title" content="My Awesome Website">
+    <meta property="og:description" content="Learn web development with easy tutorials for beginners.">
+    <!-- <meta property="og:image" content="https://faazprotech.com/image.jpg"> -->
+    <meta property="og:url" content="https://faazprotech.com">
+    <meta property="og:type" content="website">
+
+    <!-- 🐦 Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Awesome Website">
+    <meta name="twitter:description" content="Learn web development with easy tutorials for beginners.">
+    <!-- <meta name="twitter:image" content="https://faazprotech.com/image.jpg"> -->
+
+    <!-- ⭐ Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Faaz Pro Tech</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
