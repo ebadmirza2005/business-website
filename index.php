@@ -595,6 +595,7 @@
                 <div class="contact-links">
                     <h2>Contact</h2>
                     <a href="mailto:admin@faazprotech.com">admin@faazprotech.com</a>
+                    <p>+923323097240</p>
                     <a href="#contact">Request a Quote</a>
                     <p>Fast response for BPO Services and Digital Services projects.</p>
                 </div>
