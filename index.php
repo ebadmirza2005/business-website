@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#041723">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="This is a sample website that explains how to add meta tags in HTML.">
     <title>Faaz Pro Tech</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
