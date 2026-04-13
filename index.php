@@ -3,40 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="theme-color" content="#041723">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <meta name="keywords" content="web development, HTML tutorial, CSS, JavaScript, beginner coding">
     <meta name="author" content="Faaz Pro Tech">
-
-    <!-- 📱 Responsive Design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- 🧠 Robots (indexing rules) -->
     <meta name="robots" content="index, follow">
 
-    <!-- 🌐 Open Graph (for Facebook, LinkedIn, WhatsApp) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="My Awesome Website">
     <meta property="og:description" content="Learn web development with easy tutorials for beginners.">
-    <!-- <meta property="og:image" content="https://faazprotech.com/image.jpg"> -->
     <meta property="og:url" content="https://faazprotech.com">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://faazprotech.com/image.jpg">
 
-    <!-- 🐦 Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="My Awesome Website">
     <meta name="twitter:description" content="Learn web development with easy tutorials for beginners.">
-    <!-- <meta name="twitter:image" content="https://faazprotech.com/image.jpg"> -->
+    <meta name="twitter:image" content="https://faazprotech.com/image.jpg">
 
-    <!-- ⭐ Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/brain.png" type="image/png">
+
     <title>Faaz Pro Tech</title>
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="assets/brain.png">
-    <link rel="icon" type="image/png" href="assets/brain.png">
-    <link rel="shortcut icon" href="assets/brain.png">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
