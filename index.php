@@ -10,7 +10,6 @@
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
     <link rel="shortcut icon" href="assets/brain.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -32,12 +31,6 @@
             <a href="#packages">Packages</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <button class="btn btn-ghost nav-auth-btn" id="openAuthMenu" type="button">Login / Signup</button>
-            <div class="user-chip nav-user-chip" id="navUserChip" hidden>
-                <span class="avatar" id="navUserAvatar" aria-hidden="true">U</span>
-                <span class="user-name" id="navUserName">User</span>
-                <button class="logout-btn" id="navLogoutBtn" type="button">Logout</button>
-            </div>
         </nav>
     </header>
 
@@ -401,8 +394,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Advanced Website 5-8 Pages</li>
                                 <li><i class='bx bxs-check-circle'></i> Custom Design & Graphics</li>
                                 <li><i class='bx bxs-check-circle'></i> Advanced SEO Optimization</li>
-                                <li><i class='bx bxs-check-circle'></i> Payment Gateway Integration</li>
                                 <li><i class='bx bxs-check-circle'></i> Blog System Setup</li>
+                                <li><i class='bx bxs-check-circle'></i> Performance Optimization</li>
                                 <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
@@ -422,7 +415,7 @@
                                 <li><i class='bx bxs-check-circle'></i> Unlimited Pages Website</li>
                                 <li><i class='bx bxs-check-circle'></i> Custom Web</li>
                                 <li><i class='bx bxs-check-circle'></i> Advanced SEO & Marketing</li>
-                                <li><i class='bx bxs-check-circle'></i> E-Commerce Integration</li>
+                                <li><i class='bx bxs-check-circle'></i> Advanced Content Strategy</li>
                                 <li><i class='bx bxs-check-circle'></i> Advanced Analytics</li>
                                 <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
                             </ul>
@@ -600,99 +593,6 @@
             <p>Copyright <span id="year"></span> Fast Pro Tech. All rights reserved.</p>
         </div>
     </footer>
-
-    <div class="auth-modal" id="authModal" aria-hidden="true" role="dialog" aria-labelledby="authModalTitle">
-        <div class="auth-panel" role="document">
-            <button type="button" class="auth-close" id="closeAuth" aria-label="Close authentication">x</button>
-            <h2 id="authModalTitle">Welcome Back</h2>
-            <p>Join Fast Pro Tech and manage your service requests with ease.</p>
-
-            <div class="auth-tabs" role="tablist" aria-label="Auth tabs">
-                <button type="button" class="tab-btn is-active" id="loginTab" data-target="loginForm" role="tab"
-                    aria-selected="true">Login</button>
-                <button type="button" class="tab-btn" id="signupTab" data-target="signupForm" role="tab"
-                    aria-selected="false">Sign Up</button>
-            </div>
-
-            <button type="button" class="btn btn-ghost auth-logout-btn" id="modalLogoutBtn" hidden>Logout</button>
-
-            <form id="loginForm" class="auth-form is-active" method="POST" novalidate>
-                <label>
-                    Email Address
-                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
-                </label>
-                <label>
-                    Password
-                </label>
-                <input type="password" id="loginPassword" placeholder="Enter password" minlength="6" required>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-
-            <form id="signupForm" class="auth-form" method="POST"  novalidate>
-                <label>
-                    Full Name
-                    <input type="text" id="signupName" placeholder="Your full name" required>
-                </label>
-                <label>
-                    Email Address
-                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
-                </label>
-                <label>
-                    Password
-                    <input type="password" id="signupPassword" placeholder="Create password" minlength="6" required>
-                </label>
-                <button type="submit" class="btn btn-primary">Create Account</button>
-            </form>
-
-            <p class="auth-message" id="authMessage" aria-live="polite"></p>
-        </div>
-    </div>
-
-    <!-- Test Payment Section -->
-    <div id="testPaymentSection" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 999; background: rgba(1, 13, 22, 0.95); padding: 1rem; border: 2px solid #00d9ff; border-radius: 12px;">
-        <p style="margin: 0 0 0.5rem 0; color: #d7ffdf; font-size: 0.9rem;">💧 Test Payment (50)</p>
-        <button id="testPaymentBtn" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Test Payment 50</button>
-    </div>
-
-    <!-- Payment Modal -->
-    <div class="payment-modal" id="paymentModal" aria-hidden="true" role="dialog" aria-labelledby="paymentModalTitle">
-        <div class="payment-panel" role="document">
-            <button type="button" class="payment-close" id="closePayment" aria-label="Close payment">✕</button>
-            <h2 id="paymentModalTitle">Complete Your Purchase</h2>
-            
-            <div class="payment-summary">
-                <div class="summary-item">
-                    <span>Package:</span>
-                    <strong id="paymentPackage">-</strong>
-                </div>
-                <div class="summary-item">
-                    <span>Type:</span>
-                    <strong id="paymentType">-</strong>
-                </div>
-                <div class="summary-item total">
-                    <span>Amount:</span>
-                    <strong id="paymentAmount">$0.00</strong>
-                </div>
-            </div>
-
-            <form id="paymentForm" class="payment-form" novalidate>
-                <label>
-                    Email Address
-                    <input type="email" id="paymentEmail" placeholder="you@example.com" required>
-                </label>
-                
-                <div id="card-element" style="border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 12px; padding: 1rem; background: rgba(1, 13, 22, 0.5); margin-bottom: 1rem;"></div>
-                <div id="card-errors" style="color: #ffc7c7; margin-bottom: 1rem; font-size: 0.9rem;"></div>
-
-                <button type="submit" class="btn btn-primary" id="paymentSubmit" style="width: 100%;">
-                    <span id="paymentSubmitText">Pay Now</span>
-                </button>
-            </form>
-
-            <p class="payment-message" id="paymentMessage" aria-live="polite"></p>
-        </div>
-    </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

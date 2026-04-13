@@ -59,6 +59,5 @@ function env($key, $default = null)
 /*
 require_once __DIR__ . '/config-env.php';
 
-$stripeKey = env('STRIPE_SECRET_KEY');
 $dbHost = env('DB_HOST', 'localhost');
 */
