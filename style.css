@@ -34,7 +34,10 @@
 html {
     scroll-behavior: smooth;
     min-height: 100%;
-    background: var(--bg-gradient);
+    background:
+        radial-gradient(circle at 18% 15%, rgba(33, 198, 255, 0.2), transparent 38%),
+        radial-gradient(circle at 82% 5%, rgba(255, 159, 67, 0.2), transparent 34%),
+        var(--bg-gradient);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -43,9 +46,13 @@ body {
     font-family: "Manrope", sans-serif;
     color: var(--text-main);
     background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         radial-gradient(circle at 18% 15%, rgba(33, 198, 255, 0.2), transparent 38%),
         radial-gradient(circle at 82% 5%, rgba(255, 159, 67, 0.2), transparent 34%),
         var(--bg-gradient);
+    background-size: 36px 36px, 36px 36px, auto, auto, auto;
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -60,6 +67,7 @@ body::before {
     pointer-events: none;
     mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
     z-index: -1;
+    display: none;
 }
 
 a {
@@ -244,7 +252,7 @@ main section {
     position: absolute;
     inset: auto 8% 24% 8%;
     height: 68%;
-    /* background: radial-gradient(circle, rgba(29, 233, 182, 0.3) 0%, transparent 70%); */
+    background: radial-gradient(circle, rgba(29, 233, 182, 0.3) 0%, transparent 70%);
     filter: blur(8px);
     z-index: -1;
 }
