@@ -1368,8 +1368,8 @@ body.is-loading {
     }
 
     header .logo {
-        width: clamp(116px, 34vw, 152px);
-        max-height: 54px;
+        width: clamp(132px, 40vw, 176px);
+        max-height: 66px;
         margin-top: 0;
     }
 
