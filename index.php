@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Faaz Pro Tech</title>
+    <title>Best Web Development Company | Faaz Pro Tech</title>
     <meta name="description" content="Faaz Pro Tech provides web development, app development, data processing, lead generation, and digital marketing services in Pakistan.">
     <meta name="keywords" content="web development Pakistan, data entry services, lead generation, digital marketing, Faaz Pro Tech">
     <meta property="og:type" content="website">
