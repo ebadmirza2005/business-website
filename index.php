@@ -14,6 +14,7 @@
     <meta property="og:url" content="https://faazprotech.com">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
+    <link rel="canonical" href="https://yourdomain.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
