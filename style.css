@@ -296,7 +296,7 @@ main section {
     animation: floatUpDown 4.6s ease-in-out infinite;
 }
 
-.profile h2 {
+.profile h1 {
     position: absolute;
     top: 350px;
     font-family: "Urbanist", sans-serif;
@@ -306,14 +306,13 @@ main section {
     letter-spacing: 0.07em;
 }
 
-.profile h2 span {
+.profile h1 span {
     color: var(--brand);
 }
 
 .profile p {
     position: relative;
     bottom: 120px;
-    /* right: 40px; */
     font-weight: bold;
     color: var(--text-soft);
 }

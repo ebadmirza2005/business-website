@@ -40,11 +40,11 @@
             <canvas id="web"></canvas>
             <div class="profile">
                 <img src="assets/brain.png" alt="Profile image of Faaz Pro Tech founder" width="400" height="400" loading="eager"  fetchpriority="high" decoding="async">
-                <h2>
+                <h1>
                     <span>F</span>aaz
                     <span>P</span>ro
                     <span>T</span>ech
-                </h2>
+                </h1>
                 <p>Turning data into powerful business insights.</p>
             </div>
             <div class="detail-section">
