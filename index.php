@@ -268,7 +268,7 @@
                     <div class="card">
                         <div class="lines"></div>
                                 <div class="imgBx">
-                                    <label for="">🌐</label>
+                                    <label>🌐</label>
                                 </div>
                                 <div class="content">
                                     <div class="details">
@@ -380,7 +380,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Responsive Design</li>
                                 <li><i class='bx bxs-check-circle'></i> Basic SEO Setup</li>
                                 <li><i class='bx bxs-check-circle'></i> Contact Form Integration</li>
-                                <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                             </ul>
                             <button class="btn btn-ghost package-btn">Get Started</button>
                         </div>
@@ -401,7 +402,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Advanced SEO Optimization</li>
                                 <li><i class='bx bxs-check-circle'></i> Blog System Setup</li>
                                 <li><i class='bx bxs-check-circle'></i> Performance Optimization</li>
-                                <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
@@ -422,7 +424,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Advanced SEO & Marketing</li>
                                 <li><i class='bx bxs-check-circle'></i> Advanced Content Strategy</li>
                                 <li><i class='bx bxs-check-circle'></i> Advanced Analytics</li>
-                                <li><i class='bx bxs-check-circle'></i> TAT (24 TO 72 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
@@ -446,6 +449,8 @@
                                 <li><i class='bx bxs-check-circle'></i> 3 Core Features</li>
                                 <li><i class='bx bxs-check-circle'></i> Basic UI/UX Design</li>
                                 <li><i class='bx bxs-check-circle'></i> API Integration</li>
+                                <li><i class='bx bxs-check-circle'></i>TAT (24 TO 48 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                             </ul>
                             <button class="btn btn-ghost package-btn">Get Started</button>
                         </div>
@@ -466,6 +471,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Custom UI/UX Design</li>
                                 <li><i class='bx bxs-check-circle'></i> Backend Development</li>
                                 <li><i class='bx bxs-check-circle'></i> Push Notifications</li>
+                                <li><i class='bx bxs-check-circle'></i>TAT (24 TO 48 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
@@ -482,11 +489,12 @@
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Native iOS + Android Apps</li>
-                                <li><i class='bx bxs-check-circle'></i> Unlimited Advanced Features</li>
+                                <li><i class='bx bxs-check-circle'></i> 8 Advanced Features</li>
                                 <li><i class='bx bxs-check-circle'></i> Premium UI/UX Experience</li>
                                 <li><i class='bx bxs-check-circle'></i> Cloud Backend Infrastructure</li>
                                 <li><i class='bx bxs-check-circle'></i> Real-time Analytics & Reports</li>
-                                <li><i class='bx bxs-check-circle'></i> 6 Months Support</li>
+                                <li><i class='bx bxs-check-circle'></i>TAT (24 TO 48 Hours)</li>
+                                <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>

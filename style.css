@@ -945,9 +945,10 @@ button[disabled] {
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    color: #d0e8f4;
     font-size: 0.95rem;
     line-height: 1.45;
+    /* letter-spacing: 2px; */
+    color: #d0e8f4;
 }
 
 .package-features i {
