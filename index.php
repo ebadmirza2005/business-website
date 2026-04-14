@@ -658,7 +658,23 @@
         "https://www.linkedin.com/in/ebad-mirza-50b0913a2/"
          ]
         }
+
+        
     </script>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69ddff805b2ee31c38424d24/1jm5is4g4';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
     <script src="script.js" defer></script>
 </body>
 
