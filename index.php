@@ -382,6 +382,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Contact Form Integration</li>
                                 <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-ghost package-btn">Get Started</button>
                         </div>
@@ -404,6 +406,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Performance Optimization</li>
                                 <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
@@ -426,6 +430,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Advanced Analytics</li>
                                 <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
@@ -451,6 +457,8 @@
                                 <li><i class='bx bxs-check-circle'></i> API Integration</li>
                                 <li><i class='bx bxs-check-circle'></i>TAT (24 TO 48 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-ghost package-btn">Get Started</button>
                         </div>
@@ -473,6 +481,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Push Notifications</li>
                                 <li><i class='bx bxs-check-circle'></i>TAT (24 TO 48 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
@@ -495,6 +505,8 @@
                                 <li><i class='bx bxs-check-circle'></i> Real-time Analytics & Reports</li>
                                 <li><i class='bx bxs-check-circle'></i>TAT (24 TO 48 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
