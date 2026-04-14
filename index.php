@@ -638,7 +638,7 @@
         "https://www.linkedin.com/in/ebad-mirza-50b0913a2/"
          ]
         }
-</script>
+    </script>
     <script src="script.js" defer></script>
 </body>
 
