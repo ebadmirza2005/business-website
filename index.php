@@ -55,15 +55,15 @@
                 <p>Turning data into powerful business insights.</p>
             </div>
             <div class="detail-section">
-                <span>
                     <p>
-                        We provide expert web and app development, creative design, and result-driven
-                         digital marketing solutions. Alongside this, we offer reliable data 
-                         processing services including data entry, data management, 
-                         and analysis with high accuracy. Our goal is to deliver complete digital and
-                          data solutions that help businesses grow efficiently.
+                        <span>
+                            We provide expert web and app development, creative design, and result-driven
+                            digital marketing solutions. Alongside this, we offer reliable data 
+                            processing services including data entry, data management, 
+                            and analysis with high accuracy. Our goal is to deliver complete digital and
+                            data solutions that help businesses grow efficiently.
+                        </span>
                     </p>
-                </span>
                 <span>
                     <p class="choose">Why Choose Us?</p>
                 </span>
