@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://faazprotech.com/assets/logo.png">
     <meta property="og:url" content="https://faazprotech.com">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="assets/brain.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="canonical" href="https://faazprotech.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
