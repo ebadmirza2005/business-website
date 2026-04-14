@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Faaz Pro Tech</title>
+    <meta name="description" content="Faaz Pro Tech provides web development, app development, data processing, lead generation, and digital marketing services in Pakistan.">
+    <meta name="keywords" content="web development Pakistan, data entry services, lead generation, digital marketing, Faaz Pro Tech">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
-    <link rel="shortcut icon" href="assets/brain.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
