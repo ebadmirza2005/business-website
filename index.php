@@ -605,6 +605,17 @@
         </section>
     </main>
 
+    <a
+        class="whatsapp-float"
+        href="https://wa.me/923323097240"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+    >
+        <i class='bx bxl-whatsapp' aria-hidden="true"></i>
+        <span>WhatsApp</span>
+    </a>
+
     <footer class="footer">
         <div class="footer-details">
             <div class="footer-top">
