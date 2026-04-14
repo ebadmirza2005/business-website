@@ -64,23 +64,23 @@
                             data solutions that help businesses grow efficiently.
                         </span>
                     </p>
-                <span>
-                    <p class="choose">Why Choose Us?</p>
-                </span>
-                <span>
+                
+                    <p class="choose"><span>Why Choose Us?</span></p>
+                
+                
                     <ul>
-                        <li>All-in-one services: development, design, marketing & data processing</li>
-                        <li>High accuracy and secure data handling</li>
-                        <li>Fast delivery with scalable and modern solutions</li>
-                        <li>Dedicated support focused on client success</li>
+                        <li><span>All-in-one services: development, design, marketing & data processing</span></li>
+                        <li><span>High accuracy and secure data handling</span></li>
+                        <li><span>Fast delivery with scalable and modern solutions</span></li>
+                        <li><span>Dedicated support focused on client success</span></li>
                     </ul>
-                </span>
-                <span>
+                
                     <div class="hero-actions">
+                    <span>
                         <a href="#contact" class="btn btn-primary">Book Consultation</a>
                         <a href="#service" class="btn btn-ghost">Explore Services</a>
+                    </span>
                     </div>
-                </span>
             </div>
         </section>
 

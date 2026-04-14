@@ -25,7 +25,7 @@ const syncHeaderOnScroll = () => {
 
 const setupScrollReveal = () => {
   const revealTargets = document.querySelectorAll(
-    ".detail-section > span, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-packages h2, .packages-tabs, .packages-grid .package-card, .section-about .about-card, .section-contact .contact-box, .footer-details > *",
+    ".detail-section > p > span, .detail-section > ul li, .detail-section > ul li span, .detail-section > span, .hero-actions > span, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-packages h2, .packages-tabs, .packages-grid .package-card, .section-about .about-card, .section-contact .contact-box, .footer-details > *",
   );
 
   if (!revealTargets.length || reducedMotionQuery.matches) {
