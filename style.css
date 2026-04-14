@@ -1398,9 +1398,10 @@ body.is-loading {
     }
 
     header .logo {
-        width: clamp(132px, 40vw, 176px);
-        max-height: 66px;
-        margin-top: 0
+        position: absolute;
+        /* width: clamp(132px, 40vw, 176px); */
+        max-height: 170px;
+        margin-top: 10px;
     }
 
     .menu-toggle {
@@ -1454,14 +1455,16 @@ body.is-loading {
     }
 
     .profile img {
-        width: min(290px, 78vw);
-        height: auto
+        position: absolute;
+        width: min(390px, 78vw);
+        height: 500px;
+        bottom: -100px;
     }
 
     .profile h1 {
         position: static;
         top: auto;
-        margin-top: -.15rem
+        margin-top: 15rem
     }
 
     .profile p {
