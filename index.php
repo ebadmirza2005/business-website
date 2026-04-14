@@ -8,13 +8,15 @@
     <title>Faaz Pro Tech</title>
     <meta name="description" content="Faaz Pro Tech provides web development, app development, data processing, lead generation, and digital marketing services in Pakistan.">
     <meta name="keywords" content="web development Pakistan, data entry services, lead generation, digital marketing, Faaz Pro Tech">
-    <meta property="og:title" content="Faaz Pro Tech">
-    <meta property="og:description" content="Web Development, Data Processing & Digital Services">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Faaz Pro Tech">
+    <meta property="og:title" content="Faaz Pro Tech | Web Development & Data Services">
+    <meta property="og:description" content="We provide web development, data processing, and digital marketing services in Pakistan.">
     <meta property="og:image" content="https://faazprotech.com/assets/logo.png">
     <meta property="og:url" content="https://faazprotech.com">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/brain.png">
-    <link rel="canonical" href="https://yourdomain.com/">
+    <link rel="canonical" href="https://faazprotech.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -624,6 +626,19 @@
         </div>
     </footer>
 
+    <script type="application/ld+json">
+       {
+        "@context": "https://schema.org",
+        "@type": "website",
+        "name": "Faaz Pro Tech",
+        "url": "https://faazprotech.com",
+        "logo": "https://faazprotech.com/assets/logo.png",
+        "sameAs": [
+        "https://www.facebook.com/people/Faaz-Pro-Tech/61573335866294/",
+        "https://www.linkedin.com/in/ebad-mirza-50b0913a2/"
+         ]
+        }
+</script>
     <script src="script.js"></script>
 </body>
 
