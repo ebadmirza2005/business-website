@@ -408,6 +408,7 @@
                                 <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                                 <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> W3C Certified HTML</li>
                                 <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
@@ -432,6 +433,7 @@
                                 <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                                 <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> W3C Certified HTML</li>
                                 <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-primary package-btn">Get Started</button>
