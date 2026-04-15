@@ -8,7 +8,7 @@
     <title>Faaz Pro Tech</title>
     <meta name="description" content="Faaz Pro Tech provides web development, app development, data processing, lead generation, and digital marketing services in Pakistan.">
     <meta name="keywords" content="web development Pakistan, data entry services, lead generation, digital marketing, Faaz Pro Tech">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="Website">
     <meta property="og:site_name" content="Faaz Pro Tech">
     <meta property="og:title" content="Faaz Pro Tech | Web Development & Data Services">
     <meta property="og:description" content="We provide web development, data processing, and digital marketing services in Pakistan.">
@@ -383,6 +383,7 @@
                                 <li><i class='bx bxs-check-circle'></i> TAT (48 TO 72 Hours)</li>
                                 <li><i class='bx bxs-check-circle'></i> Dedicated Account Manager</li>
                                 <li><i class='bx bxs-check-circle'></i> Cross Browser Compatible</li>
+                                <li><i class='bx bxs-check-circle'></i> W3C Certified HTML</li>
                                 <li><i class='bx bxs-check-circle'></i> 100% Satisfaction Guarantee</li>
                             </ul>
                             <button class="btn btn-ghost package-btn">Get Started</button>
@@ -522,7 +523,7 @@
         <section class="section-about" id="about">
             <div class="about-card">
                 <p class="about-eyebrow">About Us</p>
-                <h2>About Faaz Pro Tech</h2>
+                <h3>About Faaz Pro Tech</h3>
                 <p class="about-lead">
                     We help startups, agencies, and growing businesses with end-to-end development and high-accuracy data processing,
                     turning ideas and raw data into business-ready digital solutions.
@@ -558,7 +559,7 @@
 
         <section class="section-contact" id="contact">
             <div class="contact-box">
-                <h2>Let's build your next data workflow</h2>
+                <h2 style="border: none;">Let's build your next data workflow</h2>
                 <p>Share your requirements and get a quick response from our team.</p>
                 <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
                     <label>
@@ -633,7 +634,7 @@
                 </div>
                 <div class="contact-links">
                     <h2>Contact</h2>
-                    <a href="mailto:admin@faazprotech.com">info@faazprotech.com</a>
+                    <a href="mailto:info@faazprotech.com">info@faazprotech.com</a>
                     <p>+923323097240</p>
                     <a href="#contact">Request a Quote</a>
                     <p>Fast response for BPO Services and Digital Services projects.</p>
@@ -660,7 +661,7 @@
     <script type="application/ld+json">
        {
         "@context": "https://schema.org",
-        "@type": "website",
+        "@type": "Website",
         "name": "Faaz Pro Tech",
         "url": "https://faazprotech.com",
         "logo": "https://faazprotech.com/assets/logo.png",
