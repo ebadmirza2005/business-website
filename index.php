@@ -673,7 +673,6 @@
         
     </script>
 
-    <script src="//code.tidio.co/lkxojheizftizmjllely0nbfwvhhk68l.js" async></script>
     <script src="script.js" defer></script>
 </body>
 
