@@ -557,6 +557,31 @@
                     <li>Continuous improvements based on feedback</li>
                 </ul>
             </div>
+
+            <div class="mission-row">
+                <div class="mission-card">
+                    <h3><span>W</span>ho <span>A</span>re <span>W</span>e</h3>
+                    <p style="margin-top: 80px;">We are a full-service digital agency comprised of skilled professionals with a strong passion for delivering innovative digital solutions.</p>
+                    <p>Our expertise spans a comprehensive range of digital services, enabling us to support our clients in achieving their objectives and driving sustainable business growth.</p>
+                </div>
+                <div class="mission-card">
+                    <h3><span>O</span>ur <span>M</span>ission</h3>
+                    <p style="margin-top: 80px;">Our mission is to help businesses succeed in the digital age through expert solutions, reliable support, and result-driven strategies.</p>
+                    <p>Our Data Processing Associates ensure accurate and efficient data management, helping businesses make informed decisions and grow their brand effectively.</p>                   </div>
+                <div class="mission-card">
+                    <h3><span>W</span>hat <span>W</span>e <span>D</span>o</h3>
+                     <ul style="margin-top: 80px;">
+                        <li>Data Processing Associate</li>
+                        <li>Web Development</li>
+                        <li>App Development</li>
+                        <li>Logo Design</li>
+                        <li>Graphic Design</li>
+                        <li>Marketing</li>
+                        <li>Wordpress</li>
+                        <li>UI / UX Design</li>
+                     </ul>
+                </div>
+            </div>
         </section>
 
         <section class="section-contact" id="contact">
