@@ -522,7 +522,6 @@ main section {
   font-size: 50px
 }
 
-
 .details h3 {
   font-family: "Urbanist", sans-serif;
   margin-bottom: .45rem;
@@ -662,44 +661,6 @@ main section {
   padding: .66rem .8rem;
   color: #dcf4ff;
   line-height: 1.45
-}
-
-.mission-card {
-  background: linear-gradient(180deg, rgb(255 255 255 / .09), rgb(255 255 255 / .04));
-  padding: clamp(1.2rem, 2.2vw, 2rem);
-  border: 1px solid rgb(255 255 255 / .14);
-  border-radius: var(--radius-lg);
-}
-
-.mission-card h3 {
-  position: absolute;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 25px;
-  letter-spacing: 3px;
-  border-top: 4px solid var(--brand);
-}
-
-.mission-card h3 span {
-  color: var(--brand)
-}
-
-.mission-card p {
-  margin: 10px 0;
-  text-align: justify;
-  color: var(--text-soft);
-}
-
-.mission-card ul li {
-  margin: 7px 30px 0 20px;
-  letter-spacing: 2px;
-}
-
-.mission-row {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
 }
 
 .section-contact {
@@ -1074,10 +1035,6 @@ button[disabled] {
   }
 
   .section-about {
-    grid-template-columns: 1fr
-  }
-
-  .mission-row {
     grid-template-columns: 1fr
   }
 }
