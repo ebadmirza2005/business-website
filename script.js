@@ -7,17 +7,38 @@ const contactForm = document.getElementById("contactForm");
 const contactMessage = document.getElementById("contactMessage");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let revealObserver;
+const PERFORMANCE_MODE = false;
+let headerTicking = false;
+let lastHeaderScrolledState = false;
 
 const getScrollTop = () => window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
 const syncHeaderOnScroll = () => {
   if (!pageHeader) return;
-  pageHeader.classList.toggle("is-scrolled", getScrollTop() > 2);
+  const isScrolled = getScrollTop() > 2;
+  if (isScrolled !== lastHeaderScrolledState) {
+    pageHeader.classList.toggle("is-scrolled", isScrolled);
+    lastHeaderScrolledState = isScrolled;
+  }
+};
+
+const onScroll = () => {
+  if (PERFORMANCE_MODE) {
+    if (headerTicking) return;
+    headerTicking = true;
+    window.requestAnimationFrame(() => {
+      syncHeaderOnScroll();
+      headerTicking = false;
+    });
+    return;
+  }
+  syncHeaderOnScroll();
 };
 
 const setupScrollReveal = () => {
+  if (PERFORMANCE_MODE) return;
   const revealTargets = document.querySelectorAll(
-    ".detail-section > p > span, .detail-section > ul li, .detail-section > span, .hero-actions > span, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-packages h2, .packages-tabs, .packages-grid .package-card, .section-about .about-card, .section-contact .contact-box, .footer-details > *"
+    ".section-home .profile, .section-home .detail-section, .section-service-bpo h2, .section-service-bpo .card, .section-service-digital h2, .section-service-digital .card, .section-packages h2, .packages-tabs, .packages-grid .package-card, .section-about .about-card, .section-contact .contact-box, .footer-details > *"
   );
   
   if (!revealTargets.length || reducedMotionQuery.matches) return;
@@ -86,7 +107,7 @@ if (year) {
 
 setupScrollReveal();
 syncHeaderOnScroll();
-window.addEventListener("scroll", syncHeaderOnScroll, { passive: true });
+window.addEventListener("scroll", onScroll, { passive: true });
 
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
@@ -166,7 +187,7 @@ if (btn) {
       btn.innerText = "See More";
       expanded = false;
       const targetY = Math.max(btn.getBoundingClientRect().top + window.scrollY - 180, 0);
-      window.scrollTo({ top: targetY, behavior: "smooth" });
+      window.scrollTo({ top: targetY, behavior: PERFORMANCE_MODE ? "auto" : "smooth" });
     }
   });
 }
@@ -205,7 +226,7 @@ const initPackageButtons = () => {
   packageButtons.forEach((packageButton) => {
     packageButton.addEventListener("click", (event) => {
       event.preventDefault();
-      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      contactSection.scrollIntoView({ behavior: PERFORMANCE_MODE ? "auto" : "smooth", block: "start" });
     });
   });
 };
