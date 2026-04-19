@@ -230,12 +230,30 @@ const initPackageButtons = () => {
     });
   });
 };
+
+const syncPriceOffLineWidths = () => {
+  const priceRows = document.querySelectorAll(".package-price");
+  priceRows.forEach((priceRow) => {
+    const offLine = priceRow.querySelector(".off-line");
+    const price = priceRow.querySelector(".price");
+    if (!offLine || !price) {
+      return;
+    }
+    const numericPrice = (price.textContent || "").replace(/\D/g, "");
+    const digitCount = Math.max(numericPrice.length, 1);
+    const widthInCh = digitCount + 0.8;
+    offLine.style.setProperty("--off-line-width", `${widthInCh}ch`);
+  });
+};
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     initPackageTabs();
     initPackageButtons();
+    syncPriceOffLineWidths();
   });
 } else {
   initPackageTabs();
   initPackageButtons();
+  syncPriceOffLineWidths();
 }

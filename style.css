@@ -524,14 +524,26 @@ header .logo {
 	gap: .3rem;
 }
 
+.off-line {
+	width: 25%;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	top: 19%;
+	left: 10px;
+	transform: translateY(-50%);
+}
+
 .price {
 	font-family: "Sora", sans-serif;
 	font-size: 2rem;
+	/* text-decoration: line-through; */
 	color: var(--brand);
 	font-weight: 700;
 }
 
 .period {
+	font-size: 30px;
 	color: #9cb8d6;
 }
 

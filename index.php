@@ -372,7 +372,8 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$100</span>
+                                <div class="off-line"></div>
+                                <span class="price">99</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -396,7 +397,8 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$300</span>
+                                <div class="off-line"></div>
+                                <span class="price">199</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
@@ -421,7 +423,8 @@
                                 <p class="package-subtitle">Web Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$500</span>
+                                <div class="off-line"></div>
+                                <span class="price">399</span>
                                 <span class="period">$</span>
                             </div>
                             <ul class="package-features">
