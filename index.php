@@ -555,16 +555,24 @@
                 </div>
                 <div class="steps">
                     <label>2</label>
-                    <p>A 50% deposit is required to commence work. We offer flexible payment options via WISE, Stripe, or Wire Transfer.</p>
+                    <p>Start your project with a 50% upfront payment via our secure global payment gateways.</p>
                 </div>
-                <!-- <p>From kickoff to delivery, every project follows a clear and transparent process.</p>
-                <ul>
-                    <li>Requirement understanding and source planning</li>
-                    <li>Clean execution with quality checkpoints</li>
-                    <li>Transparent reports and export-ready delivery</li>
-                    <li>Continuous improvements based on feedback</li>
-                </ul> -->
-
+                <div class="steps">
+                    <label>3</label>
+                    <p>We bring your vision to life with expert design and unlimited communication.</p>
+                </div>
+                <div class="steps">
+                    <label>4</label>
+                    <p>Finalize the remaining balance as we wrap up your high-quality project.</p>
+                </div>
+                <div class="steps">
+                    <label>5</label>
+                    <p>All final deliverables are securely transferred to you via Email or Google Drive.</p>
+                </div>
+                <div class="steps">
+                    <label>6</label>
+                    <p>Love our work? Help us grow by sharing your feedback on Google.</p>
+                </div>
             </div>
         </section>
 
