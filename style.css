@@ -584,6 +584,19 @@ header .logo {
 	box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
 }
 
+.about-card .steps {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.steps label {
+	padding: 15px;
+	font-size: 15PX;
+	border: 1px solid white;
+	border-radius: 50%;
+}
+
 .about-eyebrow {
 	display: inline-flex;
 	border: 1px solid #3d6b98;

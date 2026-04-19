@@ -14,7 +14,7 @@
     <meta property="og:description" content="We provide web development, data processing, and digital marketing services in Pakistan.">
     <meta property="og:image" content="https://faazprotech.com/assets/logo.png">
     <meta property="og:url" content="https://faazprotech.com">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="canonical" href="https://faazprotech.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -549,13 +549,22 @@
             </div>
             <div class="about-card about-checklist">
                 <h3>How We Work</h3>
-                <p>From kickoff to delivery, every project follows a clear and transparent process.</p>
+                <div class="steps">
+                    <label>1</label>
+                    <p>Schedule a free session to discuss your project goals via Phone, Google Meet, WhatsApp, or Email.</p>
+                </div>
+                <div class="steps">
+                    <label>2</label>
+                    <p>A 50% deposit is required to commence work. We offer flexible payment options via WISE, Stripe, or Wire Transfer.</p>
+                </div>
+                <!-- <p>From kickoff to delivery, every project follows a clear and transparent process.</p>
                 <ul>
                     <li>Requirement understanding and source planning</li>
                     <li>Clean execution with quality checkpoints</li>
                     <li>Transparent reports and export-ready delivery</li>
                     <li>Continuous improvements based on feedback</li>
-                </ul>
+                </ul> -->
+
             </div>
         </section>
 
@@ -676,7 +685,7 @@
         
     </script>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=1.2" defer></script>
 </body>
 
 </html>
