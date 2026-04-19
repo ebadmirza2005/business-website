@@ -480,16 +480,31 @@ header .logo {
 	flex-direction: column;
 	box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
 	transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+
+}
+
+@keyframes pulse-glow {
+	from {
+		box-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+	}
+
+	to {
+		box-shadow: 0 0 20px #3498db, 0 0 40px #2980b9;
+	}
 }
 
 .package-card:hover {
 	transform: translateY(-4px);
+	border: 2px dotted #3b6ea3;
+	transition: 0.3s ease-in-out;
 	border-color: #3f73aa;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, .34);
 }
 
 .package-card.featured {
 	border-color: #4f84bc;
+	animation: pulse-glow 2s infinite alternate;
+
 }
 
 .package-badge {

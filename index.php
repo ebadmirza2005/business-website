@@ -14,7 +14,7 @@
     <meta property="og:description" content="We provide web development, data processing, and digital marketing services in Pakistan.">
     <meta property="og:image" content="https://faazprotech.com/assets/logo.png">
     <meta property="og:url" content="https://faazprotech.com">
-    <link rel="stylesheet" href="style.css?v=1.5">
+    <link rel="stylesheet" href="style.css?v=1.6">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="canonical" href="https://faazprotech.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -416,7 +416,7 @@
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
 
-                        <div class="package-card featured">
+                        <div class="package-card">
                             <div class="package-badge">Pro</div>
                             <div class="package-header">
                                 <h3>Business</h3>
@@ -696,7 +696,7 @@
         
     </script>
 
-    <script src="script.js?v=1.5" defer></script>
+    <script src="script.js?v=1.6" defer></script>
 </body>
 
 </html>
