@@ -14,7 +14,7 @@
     <meta property="og:description" content="We provide web development, data processing, and digital marketing services in Pakistan.">
     <meta property="og:image" content="https://faazprotech.com/assets/logo.png">
     <meta property="og:url" content="https://faazprotech.com">
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <link rel="stylesheet" href="style.css?v=1.7">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="canonical" href="https://faazprotech.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -375,6 +375,9 @@
                                 <div class="off-line"></div>
                                 <span class="price">99</span>
                                 <span class="period">$</span>
+                                <label class="off-tag">
+                                    25% OFF
+                                </label>
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Basic Website 3-5 Pages</li>
@@ -400,6 +403,9 @@
                                 <div class="off-line"></div>
                                 <span class="price">199</span>
                                 <span class="period">$</span>
+                                <label class="off-tag">
+                                    30% OFF
+                                </label>
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Advanced Website 5-8 Pages</li>
@@ -426,6 +432,9 @@
                                 <div class="off-line"></div>
                                 <span class="price">399</span>
                                 <span class="period">$</span>
+                                <label class="off-tag">
+                                    35% OFF
+                                </label>
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Unlimited Pages Website</li>
@@ -453,8 +462,12 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$50</span>
+                                <div class="off-line"></div>
+                                <span class="price">49</span>
                                 <span class="period">$</span>
+                                <label class="off-tag">
+                                    10% OFF
+                                </label>
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Single Platform (iOS or Android)</li>
@@ -476,8 +489,12 @@
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$150</span>
+                                <div class="off-line"></div>
+                                <span class="price">149</span>
                                 <span class="period">$</span>
+                                <label class="off-tag">
+                                    20% OFF
+                                </label>
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Cross-Platform (iOS + Android)</li>
@@ -493,15 +510,19 @@
                             <button class="btn btn-primary package-btn">Get Started</button>
                         </div>
 
-                        <div class="package-card featured">
+                        <div class="package-card">
                             <div class="package-badge">Pro</div>
                             <div class="package-header">
                                 <h3>Business</h3>
                                 <p class="package-subtitle">App Development</p>
                             </div>
                             <div class="package-price">
-                                <span class="price">$300</span>
+                                <div class="off-line"></div>
+                                <span class="price">299</span>
                                 <span class="period">$</span>
+                                <label class="off-tag">
+                                    35% OFF
+                                </label>
                             </div>
                             <ul class="package-features">
                                 <li><i class='bx bxs-check-circle'></i> Native iOS + Android Apps</li>
@@ -642,7 +663,7 @@
     <footer class="footer">
         <div class="footer-details">
             <div class="footer-top">
-                <h3><span>FAAZ PRO</span> TECH</h3>
+                <h3><span>F</span>AAZ <span>P</span>RO <span>T</span>ECH</h3>
                 <p>Turning data into powerful business insights.</p>
             </div>
             <div class="footer-links">
@@ -696,7 +717,7 @@
         
     </script>
 
-    <script src="script.js?v=1.6" defer></script>
+    <script src="script.js?v=1.7" defer></script>
 </body>
 
 </html>

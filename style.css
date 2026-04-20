@@ -546,7 +546,7 @@ header .logo {
 	position: absolute;
 	top: 19%;
 	left: 10px;
-	transform: translateY(-50%);
+	transform: translateY(-50%) rotate(-20deg);
 }
 
 .price {
@@ -560,6 +560,15 @@ header .logo {
 .period {
 	font-size: 30px;
 	color: #9cb8d6;
+}
+
+.off-tag {
+	position: relative;
+	bottom: 5px;
+	left: 20px;
+	font-size: 12px;
+	border: 1px solid white;
+	padding: 5px;
 }
 
 .package-features {

@@ -158,9 +158,6 @@ if (contactForm) {
   });
 }
 
-const canvas = document.getElementById("web");
-if (canvas) canvas.style.display = "none";
-
 const btn = document.getElementById("seeMoreBtn");
 let expanded = false;
 
