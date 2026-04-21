@@ -14,7 +14,7 @@
     <meta property="og:description" content="We provide web development, data processing, and digital marketing services in Pakistan.">
     <meta property="og:image" content="https://faazprotech.com/assets/logo.png">
     <meta property="og:url" content="https://faazprotech.com">
-    <link rel="stylesheet" href="style.css?v=1.8">
+    <link rel="stylesheet" href="style.css?v=1.9">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="canonical" href="https://faazprotech.com/">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -91,265 +91,213 @@
                     <div class="imgBx">
                         <img src="assets/data-collection.png" alt="Data collection service" loading="lazy" decoding="async">
                     </div>
-                    <div class="content">
-                        <div class="details">
-                            <h3>Data Collection</h3>
-                            <p>Gather accurate and reliable data from multiple sources for better decision-making.</p>
-                        </div>
+                    <div class="details">
+                        <h3>Data Collection</h3>
+                        <p>Gather accurate and reliable data from multiple sources for better decision-making.</p>
                     </div>
                 </div>
-                    <div class="card">
-                        <div class="imgBx">
-                            <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Prospect List Building</h3>
-                                <p>Create targeted contact lists or datasets tailored to your business needs.</p>
-                            </div>
-                        </div>
-                
-                    </div>
 
-                    <div class="card">
-                        <div class="imgBx">
-                            <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Data Research</h3>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/list-building.png" alt="Prospect list building service" loading="lazy" decoding="async">
+                    </div>
+                    <div class="details">
+                        <h3>Prospect List Building</h3>
+                        <p>Create targeted contact lists or datasets tailored to your business needs.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/data-research.png" alt="Data research service" loading="lazy" decoding="async">
+                    </div>
+                    <div class="details">
+                        <h3>Data Research</h3>
                         <p>Analyze trends, patterns, and insights to support strategic planning.</p>
-                            </div>
-                        </div>
-                        
                     </div>
+                </div>
 
-                    <div class="card">
-                        <div class="imgBx">
-                            <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Cold Lead Generation</h3>
-                                <p>Identify and reach potential clients to grow your sales pipeline effectively.</p>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/lead-generation.png" alt="Cold lead generation service" loading="lazy" decoding="async">
                     </div>
-
-                    <div class="card">
-                        <div class="imgBx">
-                            <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Data Entry (Advanced)</h3>
-                                <p>Advanced data entry ensures accurate management of large datasets.</p>
-                            </div>
-                        </div>
+                    <div class="details">
+                        <h3>Cold Lead Generation</h3>
+                        <p>Identify and reach potential clients to grow your sales pipeline effectively.</p>
                     </div>
+                </div>
 
-                     <div class="card">
-                        <div class="imgBx">
-                            <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>PDF to Excel</h3>
-                                <p>Convert PDF data into Excel sheets quickly and accurately for easy analysis.</p>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/data-entry.png" alt="Advanced data entry service" loading="lazy" decoding="async">
                     </div>
-
-                    <div class="card hidden">
-                        <div class="imgBx">
-                            <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Cold Calling</h3>
-                                <p>Engage prospects directly to introduce your products and generate leads efficiently.</p>
-                            </div>
-                        </div>
+                    <div class="details">
+                        <h3>Data Entry (Advanced)</h3>
+                        <p>Advanced data entry ensures accurate management of large datasets.</p>
                     </div>
+                </div>
 
-                    <div class="card hidden">
-                        <div class="imgBx">
-                            <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Data Scraping</h3>
-                                <p>Extract structured data from websites efficiently and ethically.</p>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/pdf-to-excel.png" alt="PDF to Excel conversion service" loading="lazy" decoding="async">
                     </div>
+                    <div class="details">
+                        <h3>PDF to Excel</h3>
+                        <p>Convert PDF data into Excel sheets quickly and accurately for easy analysis.</p>
+                    </div>
+                </div>
 
-                    <div class="card hidden">
-                        <div class="imgBx">
-                            <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                 <h3>Data Visualization</h3>
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/cold-calling.png" alt="Cold calling service" loading="lazy" decoding="async">
+                    </div>
+                    <div class="details">
+                        <h3>Cold Calling</h3>
+                        <p>Engage prospects directly to introduce your products and generate leads efficiently.</p>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/data-scraping.png" alt="Data scraping service" loading="lazy" decoding="async">
+                    </div>
+                    <div class="details">
+                        <h3>Data Scraping</h3>
+                        <p>Extract structured data from websites efficiently and ethically.</p>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/data-visualization.png" alt="Data visualization service" loading="lazy" decoding="async">
+                    </div>
+                    <div class="details">
+                        <h3>Data Visualization</h3>
                         <p>Transform raw data into clear charts, graphs, and dashboards.</p>
-                            </div>
-                        </div>
                     </div>
+                </div>
 
-                     <div class="card hidden">
-                        <div class="imgBx">
-                            <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>CRM Tools</h3>
-                                <p>Manage customer relationships efficiently and streamline workflows.</p>
-                            </div>
-                        </div>
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/crm-tools.png" alt="CRM tools" loading="lazy" decoding="async">
                     </div>
+                    <div class="details">
+                        <h3>CRM Tools</h3>
+                        <p>Manage customer relationships efficiently and streamline workflows.</p>
+                    </div>
+                </div>
 
-                    
-                    <div class="card hidden">
-                        <div class="imgBx">
-                            <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Data Extraction Tools</h3>
-                                <p>Quickly gather and organize data from multiple sources for analysis and insights.</p>
-                            </div>
-                        </div>
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/data-extraction.png" alt="Data extraction tools" loading="lazy" decoding="async">
                     </div>
-                    <div class="card hidden">
-                        <div class="imgBx">
-                            <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>MS Excel (Advanced)</h3>
-                                <p>Analyze, visualize, and manage data using advanced Excel functions and tools efficiently.</p>
-                            </div>
-                        </div>
+                    <div class="details">
+                        <h3>Data Extraction Tools</h3>
+                        <p>Quickly gather and organize data from multiple sources for analysis and insights.</p>
                     </div>
+                </div>
 
-                    <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
-                        <div class="imgBx">
-                            <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Google Workspace</h3>
-                                <p>Collaborate and manage work efficiently using Google's suite of productivity tools.</p>
-                            </div>
-                        </div>
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/ms-excel-advanced.png" alt="MS Excel (Advanced)" loading="lazy" decoding="async">
                     </div>
+                    <div class="details">
+                        <h3>MS Excel (Advanced)</h3>
+                        <p>Analyze, visualize, and manage data using advanced Excel functions and tools efficiently.</p>
+                    </div>
+                </div>
 
-                    <div class="card hidden">
-                        <!-- <div class="lines"></div> -->
-                        <div class="imgBx">
-                            <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Tools and Technologies</h3>
-                                <p>Utilize modern tools and technologies to streamline data processes.</p>
-                            </div>
-                        </div>
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/google-workspace.png" alt="Google Workspace" loading="lazy" decoding="async">
                     </div>
+                    <div class="details">
+                        <h3>Google Workspace</h3>
+                        <p>Collaborate and manage work efficiently using Google's suite of productivity tools.</p>
+                    </div>
+                </div>
+
+                <div class="card hidden">
+                    <div class="imgBx">
+                        <img src="assets/tools-and-technology.png" alt="Tools and Technologies" loading="lazy" decoding="async">
+                    </div>
+                    <div class="details">
+                        <h3>Tools and Technologies</h3>
+                        <p>Utilize modern tools and technologies to streamline data processes.</p>
+                    </div>
+                </div>
             </div>
 
             <button id="seeMoreBtn">See More</button>
         </section>
 
         <section class="section-service-digital">
-                <h2><span>Our</span> <span>Digital</span> <span>Services</span></h2>
-                <div class="service-card">
-                    <div class="card">
-                        <div class="lines"></div>
-                                <div class="imgBx">
-                                    <label>🌐</label>
-                                </div>
-                                <div class="content">
-                                    <div class="details">
-                                        <h3>Web Development</h3>
-                                        <p>Building responsive and user-friendly websites using modern technologies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <label>📱</label>
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>App Development</h3>
-                                <p>Creating powerful mobile applications for Android and iOS platforms.</p>
-                            </div>
-                        </div>
+            <h2><span>Our</span> <span>Digital</span> <span>Services</span></h2>
+            <div class="service-card">
+                <div class="card">
+                    <div class="imgBx">
+                        <label>🌐</label>
                     </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <label>🎨</label>
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Logo Design</h3>
-                                <p>Designing unique and memorable logos that represent a brand's identity.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <label>🖌️</label>
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Graphic Design</h3>
-                                <p>Crafting visually appealing designs for digital and print media.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <label>📈</label>
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Marketing</h3>
-                                <p>Promoting products and services to reach the right audience and grow business.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <img src="assets/wordpress-img.png" alt="wordpress logo">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>Wordpress</h3>
-                                <p>Creating professional WordPress websites to help businesses establish a strong and effective online presence.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <img src="assets/ui-ux.png" alt="Ui/Ux Image">
-                        </div>
-                        <div class="content">
-                            <div class="details">
-                                <h3>UI/UX Design</h3>
-                                <p>Creating intuitive and engaging user interfaces and experiences.</p>
-                            </div>
-                        </div>
+                    <div class="details">
+                        <h3>Web Development</h3>
+                        <p>Building responsive and user-friendly websites using modern technologies.</p>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <label>📱</label>
+                    </div>
+                    <div class="details">
+                        <h3>App Development</h3>
+                        <p>Creating powerful mobile applications for Android and iOS platforms.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <label>🎨</label>
+                    </div>
+                    <div class="details">
+                        <h3>Logo Design</h3>
+                        <p>Designing unique and memorable logos that represent a brand's identity.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <label>🖌️</label>
+                    </div>
+                    <div class="details">
+                        <h3>Graphic Design</h3>
+                        <p>Crafting visually appealing designs for digital and print media.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <label>📈</label>
+                    </div>
+                    <div class="details">
+                        <h3>Marketing</h3>
+                        <p>Promoting products and services to reach the right audience and grow business.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/wordpress-img.png" alt="wordpress logo">
+                    </div>
+                    <div class="details">
+                        <h3>Wordpress</h3>
+                        <p>Creating professional WordPress websites to help businesses establish a strong and effective online presence.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="assets/ui-ux.png" alt="Ui/Ux Image">
+                    </div>
+                    <div class="details">
+                        <h3>UI/UX Design</h3>
+                        <p>Creating intuitive and engaging user interfaces and experiences.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="section-packages" id="packages">
@@ -357,13 +305,11 @@
                 <h2><span>Our</span> <span>Pricing</span> <span>Packages</span></h2>
                 <p class="packages-intro">Choose the perfect plan for your business needs</p>
                 
-                <!-- Package Tabs -->
                 <div class="packages-tabs">
                     <button class="package-tab-btn is-active" data-tab="web-dev">🌐 Web Development</button>
                     <button class="package-tab-btn" data-tab="app-dev">📱 App Development</button>
                 </div>
 
-                <!-- Web Development Packages -->
                 <div class="packages-grid-wrapper is-active" id="web-dev">
                     <div class="packages-grid">
                         <div class="package-card">
@@ -453,7 +399,6 @@
                     </div>
                 </div>
 
-                <!-- App Development Packages -->
                 <div class="packages-grid-wrapper" id="app-dev">
                     <div class="packages-grid">
                         <div class="package-card">
@@ -718,7 +663,7 @@
         
     </script>
 
-    <script src="script.js?v=1.8" defer></script>
+    <script src="script.js?v=1.9" defer></script>
 </body>
 
 </html>
