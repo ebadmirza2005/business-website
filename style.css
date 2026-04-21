@@ -483,16 +483,6 @@ header .logo {
 
 }
 
-@keyframes pulse-glow {
-	from {
-		box-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
-	}
-
-	to {
-		box-shadow: 0 0 20px #3498db, 0 0 40px #2980b9;
-	}
-}
-
 .package-card:hover {
 	transform: translateY(-4px);
 	border: 2px dotted #3b6ea3;
@@ -504,8 +494,18 @@ header .logo {
 .package-card.featured {
 	border-color: #4f84bc;
 	animation: pulse-glow 2s infinite alternate;
-
 }
+
+@keyframes pulse-glow {
+	from {
+		box-shadow: 0 0 10px #3498db, 0 0 20px #15d0b4;
+	}
+
+	to {
+		box-shadow: 0 0 20px #3498db, 0 0 40px #15d0b4;
+	}
+}
+
 
 .package-badge {
 	position: absolute;
@@ -629,6 +629,14 @@ header .logo {
 
 .steps label {
 	font-size: 20px;
+	font-weight: bold;
+	color: #3498db;
+}
+
+.steps label::after {
+	content: "•";
+	margin-left: 8px;
+	color: #3498db;	
 }
 
 .about-eyebrow {
@@ -647,6 +655,10 @@ header .logo {
 	font-family: "Sora", sans-serif;
 	margin-bottom: .6rem;
 	font-size: clamp(1.3rem, 2.3vw, 2rem);
+}
+
+.about-checklist {
+	border: 1px solid var(--brand);
 }
 
 .about-lead,
