@@ -560,31 +560,6 @@
                         <input type="email" name="email" placeholder="you@example.com" required>
                     </label>
                     <label>
-                        Select Service
-                        <select name="service" required>
-                            <option value="" selected disabled>Choose a service</option>
-                            <option value="Data Collection">Data Collection</option>
-                            <option value="Prospect List Building">Prospect List Building</option>
-                            <option value="Data Research">Data Research</option>
-                            <option value="Cold Lead Generation">Cold Lead Generation</option>
-                            <option value="Data Entry (Advanced)">Data Entry (Advanced)</option>
-                            <option value="PDF to Excel">PDF to Excel</option>
-                            <option value="Cold Calling">Cold Calling</option>
-                            <option value="Data Scraping">Data Scraping</option>
-                            <option value="Data Visualization">Data Visualization</option>
-                            <option value="CRM Tools">CRM Tools</option>
-                            <option value="Data Extraction Tools">Data Extraction Tools</option>
-                            <option value="MS Excel (Advanced)">MS Excel (Advanced)</option>
-                            <option value="Google Workspace">Google Workspace</option>
-                            <option value="Tools and Technologies">Tools and Technologies</option>
-                            <option value="Web Development">Web Development</option>
-                            <option value="App Development">App Development</option>
-                            <option value="Logo Design">Logo Design</option>
-                            <option value="Graphic Design">Graphic Design</option>
-                            <option value="Marketing">Marketing</option>
-                        </select>
-                    </label>
-                    <label>
                         Project Details
                         <textarea name="message" rows="5" placeholder="Tell us what you need" required></textarea>
                     </label>
